@@ -31,12 +31,12 @@
                </font>
             </Label>
             <TextField fx:id="usernameID" layoutX="389.0" layoutY="121.0" />
-            <Button fx:id="loginID" layoutX="315.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="36.0" prefWidth="148.0" text="Log in" textAlignment="CENTER">
+            <Button fx:id="loginID" layoutX="315.0" layoutY="247.0" mnemonicParsing="false" onAction="#onActionLogin" onMouseClicked="#login" prefHeight="36.0" prefWidth="148.0" text="Log in" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <PasswordField layoutX="389.0" layoutY="183.0" />
+            <PasswordField fx:id="passwordID" layoutX="389.0" layoutY="183.0" />
          </children>
       </Pane>
    </center>
