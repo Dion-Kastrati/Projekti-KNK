@@ -4,11 +4,11 @@ module com.example.projektiknk {
     requires java.sql;
 
 
-    opens com.example.projektiknk to javafx.fxml;
     exports com.example.projektiknk;
 
 
-    opens controllers;
-    exports controllers;
+    opens com.example.projektiknk.controllers;
+    exports com.example.projektiknk.controllers;
+    opens com.example.projektiknk;
 
 }

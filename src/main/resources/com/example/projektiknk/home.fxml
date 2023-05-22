@@ -4,15 +4,15 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.homeController">
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="homeID" mnemonicParsing="false"   style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false"  style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false"  style="-fx-background-color: #0000;" text="Opsionet" />
-                <Button fx:id="kontaktID" mnemonicParsing="false"  style="-fx-background-color: #0000;" text="Kontakti" />
-                <Button fx:id="profilID" mnemonicParsing="false"  style="-fx-background-color: #0000;" text="Profili" />
+                <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
+                <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
+                <Button fx:id="opsionetID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Opsionet" />
+                <Button fx:id="kontaktID" mnemonicParsing="false" onMouseClicked="#sendToKontakti" style="-fx-background-color: #0000;" text="Kontakti" />
+                <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
     </top>

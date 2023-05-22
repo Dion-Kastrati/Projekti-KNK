@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.SignupController">
     <center>
         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
             <children>
@@ -31,8 +31,8 @@
                     </font>
                 </Label>
                 <TextField fx:id="fullnameID" layoutX="389.0" layoutY="51.0" />
-                <Button fx:id="loginID" layoutX="334.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#onclickSignup" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Sign up" textAlignment="CENTER" textFill="#ffd100">
-                <TextField fx:id="usernameID" layoutX="389.0" layoutY="121.0" />
+<!--                <Button fx:id="loginID" layoutX="334.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#onclickSignup" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: black; -fx-font-weight: bold;" text="Sign up" textAlignment="CENTER" textFill="#ffd100">-->
+<!--                <TextField fx:id="usernameID" layoutX="389.0" layoutY="121.0" />-->
                 <Button fx:id="loginID" layoutX="315.0" layoutY="247.0" mnemonicParsing="false"  prefHeight="36.0" prefWidth="148.0" text="Log in" textAlignment="CENTER">
 
                     <font>
@@ -58,8 +58,6 @@
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="loginMenuButton" mnemonicParsing="false" onMouseClicked="#menuLogin" style="-fx-background-color: #fff;" text="Log in" />
-                <Button fx:id="signupMenuButton" mnemonicParsing="false" onMouseClicked="#signupMenu" style="-fx-background-color: #fff;" text="Sign up" />
 
                 <Button mnemonicParsing="false"  text="Log in" />
                 <Button mnemonicParsing="false" text="Sign up" />

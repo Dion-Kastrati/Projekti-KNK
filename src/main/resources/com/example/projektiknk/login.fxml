@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.LoginController">
    <center>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
          <children>
@@ -22,7 +22,7 @@
             </Label>
             <ImageView fitHeight="368.0" fitWidth="236.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-<!--                  <Image url="@../../../../../../Desktop/buss1.jpg" />-->
+<!--                  <Image url="src/main/resources/images/buss1.jpg" />-->
                </image>
             </ImageView>
             <Label layoutX="258.0" layoutY="118.0" text="Username:">
