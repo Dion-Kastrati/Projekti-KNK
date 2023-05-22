@@ -12,16 +12,17 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                App.class.getResource("opsionet.fxml")
+                App.class.getResource("login.fxml")
         );
 
-        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Scene scene;
+        scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("eBus - Home");
         stage.setScene(scene);
         stage.show();
     }
     public static void main(String[] args) {
         launch();
     }
-
 
 }

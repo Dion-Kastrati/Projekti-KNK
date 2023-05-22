@@ -9,18 +9,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="gjuhaID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.OpsionetController">
-    <top>
-        <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
-            <items>
-                <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Opsionet" />
-                <Button fx:id="kontaktID" mnemonicParsing="false" onMouseClicked="#sendToKontakti" style="-fx-background-color: #0000;" text="Kontakti" />
-                <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
-            </items>
-        </ToolBar>
-    </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.OpsionetController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
+            <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
+            <Button fx:id="gjuhaID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
+            <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
+         </items>
+      </ToolBar>
+   </top>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +28,7 @@
                   <Insets bottom="20.0" left="50.0" top="20.0" />
                </HBox.margin>
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#translateToAlbanian" style="-fx-background-color: black;" text="Shqip" textAlignment="CENTER" textFill="#ffd100">
+                  <Button fx:id="shqipBtn" mnemonicParsing="false" onMouseClicked="#translateToAlbanian" style="-fx-background-color: black;" text="Shqip" textAlignment="CENTER" textFill="#ffd100">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -40,7 +39,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" text="Ketu shkruajm diqka ne gjuhen&#10;shqipe textin te cilen me pas &#10;do ta kthejm ne anglisht nese&#10;gjuha e sistemit eshte anglisht.">
+                  <TextArea fx:id="shqipTxt" prefHeight="200.0" prefWidth="200.0" text="Ketu shkruajm diqka ne gjuhen&#10;shqipe textin te cilen me pas &#10;do ta kthejm ne anglisht nese&#10;gjuha e sistemit eshte anglisht.">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -55,7 +54,7 @@
                   <Insets bottom="20.0" left="50.0" top="20.0" />
                </HBox.margin>
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#translateToEnglish" style="-fx-background-color: #ffd100;" text="English">
+                  <Button fx:id="anglishtBtn" mnemonicParsing="false" onMouseClicked="#translateToEnglish" style="-fx-background-color: #ffd100;" text="English">
                      <VBox.margin>
                         <Insets left="70.0" />
                      </VBox.margin>
@@ -63,7 +62,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <TextArea prefHeight="200.0" prefWidth="200.0" text="Here we will type something in &#10;english than this text will be &#10;transalted in albanian if the system&#10;language is albanian.">
+                  <TextArea fx:id="anglishtTxt" prefHeight="200.0" prefWidth="200.0" text="Here we will type something in &#10;english than this text will be &#10;transalted in albanian if the system&#10;language is albanian.">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

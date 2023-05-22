@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
 
@@ -36,5 +37,11 @@ public class LoginController {
     }
 
 
+    public void onclickLogin(MouseEvent mouseEvent) {
+    }
 
+    public void onclickCancel(MouseEvent mouseEvent) {
+        this.usernameID.clear();
+        this.passwordID.clear();
+    }
 }

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.profilController">
     <top>
@@ -10,10 +15,52 @@
             <items>
                 <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
                 <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Opsionet" />
-                <Button fx:id="kontaktID" mnemonicParsing="false" onMouseClicked="#sendToKontakti" style="-fx-background-color: #0000;" text="Kontakti" />
+                <Button fx:id="opsionetID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
                 <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
     </top>
+   <center>
+      <AnchorPane prefHeight="298.0" prefWidth="467.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="27.0" layoutY="68.0" prefHeight="266.0" prefWidth="545.0" style="-fx-border-color: black; -fx-border-radius: 20;">
+               <rotationAxis>
+                  <Point3D />
+               </rotationAxis>
+               <children>
+                  <AnchorPane layoutX="57.0" layoutY="62.0" prefHeight="142.0" prefWidth="154.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fx:id="profilePic" fitHeight="149.0" fitWidth="159.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="262.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fullname: ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="259.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username: ">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtFullname" layoutX="355.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dion Kastrati">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtUsername" layoutX="355.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dionnk">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Text layoutX="278.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profili">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
 </BorderPane>

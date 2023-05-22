@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -20,31 +21,44 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <ImageView fitHeight="368.0" fitWidth="236.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-<!--                  <Image url="src/main/resources/images/buss1.jpg" />-->
-               </image>
-            </ImageView>
             <Label layoutX="258.0" layoutY="118.0" text="Username:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
             <TextField fx:id="usernameID" layoutX="389.0" layoutY="121.0" />
-            <Button fx:id="loginID" layoutX="315.0" layoutY="247.0" mnemonicParsing="false"  prefHeight="36.0" prefWidth="148.0" text="Log in" textAlignment="CENTER">
+            <Button fx:id="loginBtn" layoutX="300.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#onclickLogin" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: black;" text="Log in" textAlignment="CENTER" textFill="#ffd100">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
             <PasswordField fx:id="passwordID" layoutX="389.0" layoutY="183.0" />
+            <AnchorPane layoutY="-2.0" prefHeight="362.0" prefWidth="226.0">
+               <ImageView fitHeight="369.0" fitWidth="358.0" layoutX="-2.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@buss1.jpg" />
+                  </image>
+               </ImageView>
+            </AnchorPane>
+            <Button fx:id="cancelBtn" layoutX="413.0" layoutY="253.0" mnemonicParsing="false" onMouseClicked="#onclickCancel" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: black;" text="Cancel" textAlignment="CENTER" textFill="#ffd100">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
-            <Button mnemonicParsing="false"  text="Log in" />
-          <Button mnemonicParsing="false"  text="Sign up" />
+            <Button mnemonicParsing="false" style="-fx-background-color: #ffd100;" text="Log in">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+          <Button mnemonicParsing="false" style="-fx-background-color: #ffd100;" text="Sign up">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
         </items>
       </ToolBar>
    </top>
