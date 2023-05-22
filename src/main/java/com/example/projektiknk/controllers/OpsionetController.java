@@ -36,7 +36,7 @@ public class OpsionetController implements Initializable {
     @FXML
     private ChoiceBox<String> myChoiceBox;
 
-    private String[] gjuha={"Shqip","Anglisht","Gjermanisht"};
+    private String[] gjuha={"Shqip","Anglisht"};
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
