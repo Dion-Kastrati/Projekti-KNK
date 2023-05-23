@@ -17,4 +17,18 @@ public class UserAuthService {
         }
         return null;
     }
+    public static User register(
+            String emri, String mbiemri, String email,String username, String password
+    ) throws SQLException{
+        User user =UserRepository.getByUsername(username);
+        if(user!=null){
+            //throw new ResourceAlreadyExistsError()
+            return null;
+        }
+        String salt = PasswordHasher.generateSalt();
+        String saltedPasswordHash = PasswordHasher.generateSaltedHash(password, salt);
+        return user;
+    }
+
+
 }
