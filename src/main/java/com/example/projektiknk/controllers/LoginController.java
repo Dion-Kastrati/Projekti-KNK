@@ -1,20 +1,17 @@
-package controllers;
+package com.example.projektiknk.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import repository.UserRepository;
+import javafx.scene.input.MouseEvent;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 
 public class LoginController {
+    public Button loginID;
     //services
     private UserServiceInterface userService;
 
@@ -45,5 +42,11 @@ public class LoginController {
          this.passwordID.clear();
     }
 
+    public void onclickLogin(MouseEvent mouseEvent) {
+    }
 
+    public void onclickCancel(MouseEvent mouseEvent) {
+        this.usernameID.clear();
+        this.passwordID.clear();
+    }
 }
