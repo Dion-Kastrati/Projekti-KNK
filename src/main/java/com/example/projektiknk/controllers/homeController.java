@@ -11,11 +11,14 @@ import java.io.IOException;
 public class homeController {
     public Button homeID;
     public Button oraretID;
-    public Button opsionetID;
-    public Button kontaktID;
+    public Button gjuhaID;
     public Button profilID;
     public Button shikoOraret;
     public Button dergoAnkese;
+
+    public class initialize{
+
+    }
 
     public void sendToHome(MouseEvent mouseEvent) throws IOException {
         Stage stage = new Stage();

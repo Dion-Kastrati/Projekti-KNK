@@ -30,7 +30,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextArea fx:id="pershkrimi" layoutX="74.0" layoutY="118.0" prefHeight="132.0" prefWidth="200.0" promptText="Shkruaj Kerkesen/Ankesen" />
+            <TextArea fx:id="pershkrimiTxt" layoutX="74.0" layoutY="118.0" prefHeight="132.0" prefWidth="200.0" promptText="Shkruaj Kerkesen/Ankesen" />
             <ComboBox fx:id="zgjedhja" layoutX="74.0" layoutY="75.0" prefHeight="26.0" prefWidth="201.0" />
             <Button fx:id="dergoBtn" layoutX="222.0" layoutY="264.0" mnemonicParsing="false" onMouseClicked="#onclickDergo" style="-fx-background-color: #ffd100;" text="Dergo">
                <font>
