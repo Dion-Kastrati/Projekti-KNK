@@ -39,6 +39,11 @@ public class LoginController {
         System.out.printf("Username: %s, Password: %s", username, password);
     }
 
+    @FXML
+    private void onActionCancel(ActionEvent e){
+         this.usernameID.clear();
+         this.passwordID.clear();
+    }
 
 
 }

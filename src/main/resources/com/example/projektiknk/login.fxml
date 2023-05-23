@@ -4,14 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <center>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
          <children>
@@ -31,21 +29,28 @@
                </font>
             </Label>
             <TextField fx:id="usernameID" layoutX="389.0" layoutY="121.0" />
-            <Button fx:id="loginID" layoutX="315.0" layoutY="247.0" mnemonicParsing="false"  prefHeight="36.0" prefWidth="148.0" text="Log in" textAlignment="CENTER">
+            <Button fx:id="loginID" layoutX="277.0" layoutY="251.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="36.0" prefWidth="112.0" style="-fx-background-color: black;" text="Log in" textAlignment="CENTER" textFill="#ffd100">
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
             <PasswordField fx:id="passwordID" layoutX="389.0" layoutY="183.0" />
+            <Label layoutX="300.0" layoutY="296.0" text="Not a member?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="signup_ID" layoutX="356.0" layoutY="288.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: transparet;" text="Sign Up!" textAlignment="CENTER" textFill="#4000ef" underline="true">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelID" layoutX="396.0" layoutY="251.0" mnemonicParsing="false" onAction="#onActionCancel" prefHeight="36.0" prefWidth="112.0" style="-fx-background-color: #000000;" text="Cancel" textAlignment="CENTER" textFill="#ffd100">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </center>
-   <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <items>
-            <Button mnemonicParsing="false"  text="Log in" />
-          <Button mnemonicParsing="false"  text="Sign up" />
-        </items>
-      </ToolBar>
-   </top>
 </BorderPane>

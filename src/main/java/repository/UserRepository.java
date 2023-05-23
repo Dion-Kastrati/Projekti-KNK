@@ -1,10 +1,17 @@
 package repository;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import models.User;
 import models.dto.CreateUserDto;
 import repository.interfaces.UserRepositoryInterface;
 import services.ConnectionUtil;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,5 +49,19 @@ public class UserRepository implements UserRepositoryInterface {
             }
         }
     }
+
+    public static void changeScene(ActionEvent event, String fxmlFile, String tittle, String username){
+        Parent root=null;
+        try {
+            root= FXMLLoader.load(UserRepository.class.getResource(fxmlFile));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        Stage stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle(tittle);
+        stage.setScene(new Scene(root,600,450));
+        stage.show();
+    }
+
 
 }
