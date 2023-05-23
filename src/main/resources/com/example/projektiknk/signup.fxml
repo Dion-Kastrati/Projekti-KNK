@@ -4,12 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignupController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.SignupController">
     <center>
         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
             <children>
@@ -18,18 +20,13 @@
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="368.0" fitWidth="236.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-<!--                        <Image url="@../../../../../../Desktop/buss1.jpg" />-->
-                    </image>
-                </ImageView>
                 <Label layoutX="273.0" layoutY="172.0" text="Username:">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Label>
                 <TextField fx:id="usernameID" layoutX="389.0" layoutY="175.0" promptText="username" />
-                <Button fx:id="signupID" layoutX="315.0" layoutY="260.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Signup" textAlignment="CENTER" textFill="#ffd100">
+                <Button fx:id="signupID" layoutX="355.0" layoutY="264.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Sign Up" textAlignment="CENTER" textFill="#ffd100">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -58,16 +55,25 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="291.0" layoutY="306.0" prefHeight="31.0" prefWidth="127.0" text="Already a member?">
+            <Label layoutX="326.0" layoutY="309.0" prefHeight="27.0" prefWidth="127.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="login_ID" layoutX="365.0" layoutY="301.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: transparet;" text="Log In!" textAlignment="CENTER" textFill="#4000ef" underline="true">
+            <Button fx:id="login_ID" layoutX="437.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="Log In!" textAlignment="CENTER" textFill="#4000ef" underline="true">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
+            <AnchorPane prefHeight="400.0" prefWidth="256.0">
+               <children>
+                  <ImageView fitHeight="400.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@buss1.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
             </children>
         </Pane>
     </center>
