@@ -1,11 +1,5 @@
 package repository;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import models.User;
 import models.dto.CreateUserDto;
 import repository.interfaces.UserRepositoryInterface;
@@ -19,17 +13,25 @@ import java.sql.SQLException;
 
 public class UserRepository implements UserRepositoryInterface {
 
+
     @Override
     public User insert(CreateUserDto user) throws SQLException {
-        String sql = "INSERT INTO users (username, salted_hash, salt) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO users (emri, mbiemri, email, username, salted_password, salt) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = ConnectionUtil.getConnection();
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, user.getUsername());
-        statement.setString(2, user.getSaltedPassword());
-        statement.setString(3, user.getSalt());
-        statement.executeUpdate();
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, user.getEmri());
+            statement.setString(2, user.getMbiemri());
+            statement.setString(3, user.getEmail());
+            statement.setString(4, user.getUsername());
+            statement.setString(5, user.getSaltedPassword());
+            statement.setString(6, user.getSalt());
+            statement.executeUpdate();
 
-        return UserRepository.getByUsername(user.getUsername());
+            return getByUsername(user.getUsername());
+        } catch (SQLException e) {
+            // Handle exceptions
+            throw e;
+        }
     }
 
 
@@ -41,27 +43,18 @@ public class UserRepository implements UserRepositoryInterface {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                String saltedHash = resultSet.getString("salted_hash");
+                String emri=resultSet.getString("emri");
+                String mbiemri=resultSet.getString("mbiemri");
+                String email=resultSet.getString("email");
+                String salted_password= resultSet.getString("salted_password");
                 String salt = resultSet.getString("salt");
-                return new User(id, username, saltedHash, salt);
+                return new User(id,emri,mbiemri,email, username, salted_password, salt);
             } else {
                 return null;
             }
         }
     }
 
-    public static void changeScene(ActionEvent event, String fxmlFile, String tittle, String username){
-        Parent root=null;
-        try {
-            root= FXMLLoader.load(UserRepository.class.getResource(fxmlFile));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        Stage stage=(Stage) ((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle(tittle);
-        stage.setScene(new Scene(root,600,450));
-        stage.show();
-    }
 
 
 }

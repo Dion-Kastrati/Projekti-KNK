@@ -38,11 +38,20 @@ public class PasswordHasher {
         byte[] expectedHash = new byte[HASH_LENGTH];
         for (int i = 0; i < HASH_LENGTH; i++) {
             int index = (SALT_LENGTH + i) * 2;
-            expectedHash[i] = (byte) Integer.parseInt(saltedHash.substring(index, index + 2), 16);
+            if (index + 2 <= saltedHash.length()) { // Check if index is within bounds
+                expectedHash[i] = (byte) Integer.parseInt(saltedHash.substring(index, index + 2), 16);
+            } else {
+                // Handle the case when the index is out of bounds
+                // You can throw an exception, return false, or handle it based on your requirement
+                // For example, you can set an invalid value for expectedHash[i] to indicate the failure
+                return false;
+            }
         }
         byte[] actualHash = hashWithSalt(password, salt);
         return MessageDigest.isEqual(expectedHash, actualHash);
     }
+
+
 
     private static byte[] hashWithSalt(String password, String salt) {
         try {

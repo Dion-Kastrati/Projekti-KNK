@@ -25,7 +25,7 @@
          <children>
             <ImageView fitHeight="286.0" fitWidth="359.0" layoutX="167.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="background bus.jpg" />
+<!--                  <Image url="background bus.jpg" />-->
                </image>
             </ImageView>
             <Text layoutX="46.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miresevini ne aplikacionin per menaxhimin e orareve te linjave te autobuseve">

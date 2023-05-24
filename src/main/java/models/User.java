@@ -3,9 +3,23 @@ package models;
 public class User {
 
     private int id;
+    private String emri;
+    private String mbiemri;
+    private String email;
+
     private String username;
     private String saltedPassword;
     private String salt;
+
+    public User(int id, String emri, String mbiemri, String email, String username, String saltedPassword, String salt) {
+        this.id = id;
+        this.emri = emri;
+        this.mbiemri = mbiemri;
+        this.email = email;
+        this.username = username;
+        this.saltedPassword = saltedPassword;
+        this.salt = salt;
+    }
 
     public User(int id, String username, String saltedPassword, String salt) {
         this.id = id;
@@ -18,6 +32,29 @@ public class User {
         return id;
     }
 
+    public String getEmri() {
+        return emri;
+    }
+
+    public void setEmri(String emri) {
+        this.emri = emri;
+    }
+
+    public String getMbiemri() {
+        return mbiemri;
+    }
+
+    public void setMbiemri(String mbiemri) {
+        this.mbiemri = mbiemri;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;
