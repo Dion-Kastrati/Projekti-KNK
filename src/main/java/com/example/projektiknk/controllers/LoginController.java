@@ -29,7 +29,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordID;
     @FXML
-    private Button loginId;
+    private Button guest_ID;
     @FXML
     private Button homeID;
 
@@ -105,6 +105,20 @@ public class LoginController {
 
 
     public void onActionGuest(ActionEvent actionEvent) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
 
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) guest_ID.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
+
