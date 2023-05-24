@@ -1,9 +1,13 @@
 package com.example.projektiknk.controllers;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -11,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GjuhaController implements Initializable {
+public class OpsionetController implements Initializable {
 
     public Button homeID;
     public Button oraretID;
@@ -23,25 +27,50 @@ public class GjuhaController implements Initializable {
         //Kjo metode sherben qe me i ekzekutu funksionet qka nuk jane onclick
     }
 
-    public void sendToHome(MouseEvent mouseEvent) throws IOException {
+    public void sendToHome(ActionEvent e) throws IOException {
         Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("home.fxml")));
+        Scene scene = null;
+        try {
+            scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml")));
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
         stage.setScene(scene);
         stage.show();
     }
 
-    public void sendToOraret(MouseEvent mouseEvent) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("oraret.fxml")));
-        stage.setScene(scene);
-        stage.show();
+    public void sendToOraret(ActionEvent event) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/oraret.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) oraretID.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void sendToOpsionet(MouseEvent mouseEvent) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("gjuha.fxml")));
-        stage.setScene(scene);
-        stage.show();
+    public void sendToOpsionet(ActionEvent event) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/gjuha.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) opsionetID.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendToKontakti(MouseEvent mouseEvent) throws IOException {
@@ -51,11 +80,21 @@ public class GjuhaController implements Initializable {
         stage.show();
     }
 
-    public void sendToProfili(MouseEvent mouseEvent) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("views/profil.fxml")));
-        stage.setScene(scene);
-        stage.show();
+    public void sendToProfili(ActionEvent event) throws IOException {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/profil.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) profilID.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void translateToAlbanian(MouseEvent mouseEvent) {

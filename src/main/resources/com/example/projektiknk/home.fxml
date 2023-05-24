@@ -2,8 +2,9 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
+
 <?import javafx.scene.image.ImageView?>
+
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -14,9 +15,9 @@
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
                 <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="gjuhaID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
-                <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
+                <Button fx:id="oraretID" mnemonicParsing="false" onAction="#shikoOraretPrejHome" style="-fx-background-color: #0000;" text="Oraret" />
+                <Button fx:id="sendGjuha" mnemonicParsing="false" onAction="#sendToOpsionet" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
+                <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToProfili" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
     </top>
@@ -28,17 +29,18 @@
 <!--                  <Image url="background bus.jpg" />-->
                </image>
             </ImageView>
+
             <Text layoutX="46.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miresevini ne aplikacionin per menaxhimin e orareve te linjave te autobuseve">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="shikoOraret" layoutX="139.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#shikoOraretPrejHome" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: #ffd100;" text="Shiko Oraret">
+            <Button fx:id="shikoOraret" layoutX="139.0" layoutY="211.0" mnemonicParsing="false" onAction="#shikoOraretPrejHome" onMouseClicked="#shikoOraretPrejHome" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: #ffd100;" text="Shiko Oraret">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="dergoAnkese" layoutX="346.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
+            <Button fx:id="dergoAnkese" layoutX="346.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
