@@ -12,10 +12,10 @@
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
-                <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
+                <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
+                <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
+                <Button fx:id="opsionetID" mnemonicParsing="false" onAction="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
+                <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
     </top>

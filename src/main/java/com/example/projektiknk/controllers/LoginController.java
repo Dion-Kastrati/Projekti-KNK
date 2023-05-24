@@ -45,15 +45,6 @@ public class LoginController {
          this.passwordID.clear();
     }
 
-    public void onclickLogin(MouseEvent mouseEvent) {
-    }
-
-    @FXML
-    public void onclickCancel(MouseEvent mouseEvent) {
-        this.usernameID.clear();
-        this.passwordID.clear();
-    }
-
     @FXML
     public void onActionSignup(ActionEvent event) {
         try {
