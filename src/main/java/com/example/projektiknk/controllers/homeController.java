@@ -23,16 +23,21 @@ public class homeController {
 
     }
 
-    public void sendToHome(ActionEvent e) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = null;
+    public void sendToHome(ActionEvent event) {
         try {
-            scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml")));
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) homeID.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void sendToOraret(ActionEvent event) {
@@ -69,12 +74,6 @@ public class homeController {
         }
     }
 
-    public void sendToKontakti(ActionEvent e) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("kontakti.fxml")));
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void sendToProfili(ActionEvent event) {
         try {

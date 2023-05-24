@@ -68,8 +68,6 @@ public class oraretController {
         }
     }
 
-    public void sendToKontakti(MouseEvent mouseEvent) {
-    }
 
     public void sendToProfili(ActionEvent event){
         try {

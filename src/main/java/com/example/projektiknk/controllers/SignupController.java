@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -35,6 +36,11 @@ public class SignupController {
         String email = emailID.getText();
         String username = usernameID.getText();
         String password = passwordID.getText();
+        // Input validation checks
+        if (emri.isEmpty() || mbiemri.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+            showErrorMessage("Please fill in all the fields.");
+            return;
+        }
 
         try {
             User user = UserAuthService.register(emri, mbiemri, email, username, password);
@@ -51,12 +57,14 @@ public class SignupController {
                 stage.setScene(scene);
                 stage.show();
             } else {
-                System.out.println("Signup failed! Unable to store data in the database.");
+                showErrorMessage("Signup failed! Unable to store data in the database.");
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
+            showErrorMessage("An error occurred during signup. Please try again later.");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            showErrorMessage("An error occurred. Please try again later.");
         }
 
     }
@@ -75,7 +83,15 @@ public class SignupController {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            showErrorMessage("An error occurred. Please try again later.");
         }
+    }
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 

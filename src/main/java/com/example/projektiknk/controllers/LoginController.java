@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -29,33 +30,46 @@ public class LoginController {
     private PasswordField passwordID;
     @FXML
     private Button loginId;
-
     @FXML
-    private void onActionLogin(ActionEvent e) throws IOException, SQLException {
+    private Button homeID;
+
+     public LoginController() {
+        userService = new UserService(); // Replace UserService with the actual implementation class name
+    }
+    @FXML
+    private void onActionLogin(ActionEvent e)  {
         String username = this.usernameID.getText();
         String password = this.passwordID.getText();
 
-        UserServiceInterface userService = new UserService(); // Replace UserService with the actual implementation class name
+        // Input validation checks
+        if (username.isEmpty() || password.isEmpty()) {
+            showErrorMessage("Please enter your username and password.");
+            return;
+        }
 
-        // Check if the username exists and the password is correct
-        User loginUser = userService.login(username, password);
+        try {
+            User loginUser = userService.login(username, password);
 
-        if (loginUser != null) {
-            // Load the home.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
+            if (loginUser != null) {
+                // Load the login.fxml file
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
 
-            // Create a new scene with the loaded FXML file
-            Scene scene = new Scene(root);
+                // Create a new scene with the loaded FXML file
+                Scene scene = new Scene(root);
 
-            // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) loginID.getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } else {
-            // Username doesn't exist or password is incorrect, show an error message or perform an action accordingly
-            System.out.println("Invalid username or password. Please try again.");
+                Stage stage = (Stage) homeID.getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                // Username doesn't exist or password is incorrect, show an error message
+                showErrorMessage("Invalid username or password. Please try again.");
+            }
+        } catch (IOException | SQLException ex) {
+            ex.printStackTrace();
+            showErrorMessage("An error occurred during login. Please try again.");
         }
     }
+    
 
     @FXML
     private void onActionCancel(ActionEvent e){
@@ -81,5 +95,13 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Login Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
 }

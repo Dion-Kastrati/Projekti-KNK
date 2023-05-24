@@ -28,6 +28,8 @@ public class UserRepository implements UserRepositoryInterface {
             statement.executeUpdate();
 
             return getByUsername(user.getUsername());
+            // Create and return the new User object directly
+         // return new User(user.getEmri(), user.getMbiemri(), user.getEmail(), user.getUsername(), user.getSaltedPassword(), user.getSalt());
         } catch (SQLException e) {
             // Handle exceptions
             throw e;
@@ -40,21 +42,22 @@ public class UserRepository implements UserRepositoryInterface {
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, username);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String emri=resultSet.getString("emri");
-                String mbiemri=resultSet.getString("mbiemri");
-                String email=resultSet.getString("email");
-                String salted_password= resultSet.getString("salted_password");
-                String salt = resultSet.getString("salt");
-                return new User(id,emri,mbiemri,email, username, salted_password, salt);
-            } else {
-                return null;
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String emri = resultSet.getString("emri");
+                    String mbiemri = resultSet.getString("mbiemri");
+                    String email = resultSet.getString("email");
+                    String salted_password = resultSet.getString("salted_password");
+                    String salt = resultSet.getString("salt");
+                    return new User(id, emri, mbiemri, email, username, salted_password, salt);
+                } else {
+                    return null;
+                }
             }
         }
     }
-
-
-
 }
+
+
+

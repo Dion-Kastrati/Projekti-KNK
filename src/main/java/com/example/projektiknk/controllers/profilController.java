@@ -68,9 +68,6 @@ public class profilController {
         }
     }
 
-    public void sendToKontakti(MouseEvent mouseEvent) {
-    }
-
     public void sendToProfili(ActionEvent event){
         try {
             // Load the signup.fxml file

@@ -1,13 +1,11 @@
 package com.example.projektiknk.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -15,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class OpsionetController implements Initializable {
+public class GjuhaController implements Initializable {
 
     public Button homeID;
     public Button oraretID;
@@ -27,17 +25,21 @@ public class OpsionetController implements Initializable {
         //Kjo metode sherben qe me i ekzekutu funksionet qka nuk jane onclick
     }
 
-    public void sendToHome(ActionEvent e) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = null;
-        try {
-            scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml")));
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
+    public void sendToHome(ActionEvent event)  {
+        try{  // Load the signup.fxml file
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
+
+        // Create a new scene with the loaded FXML file
+        Scene scene = new Scene(root);
+
+        // Get the current stage (window) and set the new scene
+        Stage stage = (Stage) homeID.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+}
 
     public void sendToOraret(ActionEvent event) {
         try {
@@ -71,13 +73,6 @@ public class OpsionetController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void sendToKontakti(MouseEvent mouseEvent) throws IOException {
-        Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("views/kontakti.fxml")));
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void sendToProfili(ActionEvent event) throws IOException {
