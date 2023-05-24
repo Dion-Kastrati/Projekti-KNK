@@ -10,68 +10,69 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.SignupController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.SignupController">
     <center>
         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="272.0" layoutY="208.0" prefHeight="31.0" prefWidth="107.0" text="Password:">
+                <Label layoutX="407.0" layoutY="302.0" prefHeight="31.0" prefWidth="101.0" text="Password:">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Label>
-                <Label layoutX="273.0" layoutY="172.0" text="Username:">
+                <Label layoutX="401.0" layoutY="252.0" text="Username:">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Label>
-                <TextField fx:id="usernameID" layoutX="389.0" layoutY="175.0" promptText="username" />
-                <Button fx:id="signupID" layoutX="355.0" layoutY="264.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Sign Up" textAlignment="CENTER" textFill="#ffd100">
+            <TextField fx:id="emriID" layoutX="535.0" layoutY="115.0" promptText="Emri" />
+            <TextField fx:id="mbiemriID" layoutX="535.0" layoutY="156.0" promptText="Mbiemri" />
+            <TextField fx:id="emailID" layoutX="534.0" layoutY="207.0" promptText="Email" />
+                <TextField fx:id="usernameID" layoutX="534.0" layoutY="254.0" promptText="Username" />
+                <PasswordField fx:id="passwordID" layoutX="535.0" layoutY="305.0" promptText="Password" />
+                <Button fx:id="signupID" layoutX="471.0" layoutY="351.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Sign Up" textAlignment="CENTER" textFill="#ffd100">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Button>
-                <PasswordField fx:id="passwordID" layoutX="389.0" layoutY="211.0" promptText="password" />
-            <Label layoutX="258.0" layoutY="67.0">
+            <Label layoutX="417.0" layoutY="153.0" text="Mbiemri:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="289.0" layoutY="95.0" text="Mbiemri:">
+            <Label layoutX="437.0" layoutY="205.0" text="E-mail:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="mbiemriID" layoutX="389.0" layoutY="98.0" promptText="mbiemri" />
-            <Label layoutX="309.0" layoutY="131.0" text="E-mail:">
+            <Label layoutX="451.0" layoutY="112.0" text="Emri:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <TextField fx:id="emailID" layoutX="389.0" layoutY="134.0" promptText="email" />
-            <TextField fx:id="emriID" layoutX="388.0" layoutY="55.0" promptText="emri" />
-            <Label layoutX="325.0" layoutY="52.0" text="Emri:">
-               <font>
-                  <Font name="System Bold" size="21.0" />
-               </font>
-            </Label>
-            <Label layoutX="326.0" layoutY="309.0" prefHeight="27.0" prefWidth="127.0" text="Already a member?">
+            <Label layoutX="454.0" layoutY="398.0" prefHeight="27.0" prefWidth="127.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="login_ID" layoutX="437.0" layoutY="309.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="Log In!" textAlignment="CENTER" textFill="#4000ef" underline="true">
+            <Button fx:id="login_ID" layoutX="565.0" layoutY="398.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: transparent;" text="Log In!" textAlignment="CENTER" textFill="#4000ef" underline="true">
                <font>
                   <Font name="Arial" size="13.0" />
                </font>
             </Button>
-            <AnchorPane prefHeight="400.0" prefWidth="256.0">
+            <AnchorPane prefHeight="500.0" prefWidth="278.0">
                <children>
-                  <ImageView fitHeight="400.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="503.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@buss1.jpg" />
                      </image>
                   </ImageView>
+                  <Text fill="#ffd100" layoutX="125.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="eBus" wrappingWidth="70.205810546875">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
             </children>

@@ -104,4 +104,7 @@ public class LoginController {
     }
 
 
+    public void onActionGuest(ActionEvent actionEvent) {
+
+    }
 }
