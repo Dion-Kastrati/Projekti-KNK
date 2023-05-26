@@ -8,15 +8,16 @@ import java.sql.SQLException;
 
 public class UserAuthService {
 
-    public static User login(String username, String password) throws SQLException{
+    public static User login(String username, String password) throws SQLException {
         User user = UserRepository.getByUsername(username);
-        if(user==null){
+        if (user == null) {
             return null;
         }
-        if(PasswordHasher.compareSaltedHash(password,user.getSalt(),user.getSaltedPassword())){
+        if (PasswordHasher.compareSaltedHash(password, user.getSalt(), user.getSaltedPassword())) {
             return user;
+        } else {
+            return null;
         }
-        return null;
     }
     public static User register(String emri, String mbiemri, String email, String username, String password) throws SQLException {
         User existingUser = UserRepository.getByUsername(username);
@@ -32,6 +33,7 @@ public class UserAuthService {
         UserRepository userRepository = new UserRepository();
         return userRepository.insert(userDto);
     }
+
 
 
 }

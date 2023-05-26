@@ -61,7 +61,7 @@ public class LoginController {
                 // Create a new scene with the loaded FXML file
                 Scene scene = new Scene(root);
 
-                Stage stage = (Stage) homeID.getScene().getWindow();
+                Stage stage = (Stage) loginID.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
             } else {

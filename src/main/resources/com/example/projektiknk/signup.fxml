@@ -16,12 +16,12 @@
     <center>
         <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="407.0" layoutY="302.0" prefHeight="31.0" prefWidth="101.0" text="Password:">
+                <Label fx:id="password_label" layoutX="407.0" layoutY="302.0" prefHeight="31.0" prefWidth="101.0" text="Password:">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
                 </Label>
-                <Label layoutX="401.0" layoutY="252.0" text="Username:">
+                <Label fx:id="username_label" layoutX="401.0" layoutY="252.0" text="Username:">
                     <font>
                         <Font name="System Bold" size="21.0" />
                     </font>
@@ -36,22 +36,22 @@
                         <Font name="System Bold" size="16.0" />
                     </font>
                 </Button>
-            <Label layoutX="417.0" layoutY="153.0" text="Mbiemri:">
+            <Label fx:id="mbiemri_label" layoutX="417.0" layoutY="153.0" text="Mbiemri:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="437.0" layoutY="205.0" text="E-mail:">
+            <Label fx:id="email_label" layoutX="437.0" layoutY="205.0" text="E-mail:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="451.0" layoutY="112.0" text="Emri:">
+            <Label fx:id="emri_label" layoutX="451.0" layoutY="112.0" text="Emri:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="454.0" layoutY="398.0" prefHeight="27.0" prefWidth="127.0" text="Already a member?">
+            <Label fx:id="alreadymember_label" layoutX="454.0" layoutY="398.0" prefHeight="27.0" prefWidth="127.0" text="Already a member?">
                <font>
                   <Font size="14.0" />
                </font>
@@ -75,6 +75,8 @@
                   </Text>
                </children>
             </AnchorPane>
+            <Button fx:id="shqip_ID" layoutX="476.0" layoutY="444.0" mnemonicParsing="false" onAction="#sqClick" text="Shqip" />
+            <Button fx:id="english_ID" layoutX="555.0" layoutY="444.0" mnemonicParsing="false" onAction="#enClick" text="English" />
             </children>
         </Pane>
     </center>
