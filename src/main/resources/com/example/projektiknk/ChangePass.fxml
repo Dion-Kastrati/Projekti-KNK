@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -62,47 +63,41 @@
          <children>
             <HBox alignment="CENTER" prefHeight="66.0" prefWidth="436.0">
                <children>
-                  <Label prefHeight="36.0" prefWidth="135.0" text="Të dhënat">
+                  <Label prefHeight="36.0" prefWidth="135.0" text="Fjalëkalimi">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="76.0" prefHeight="36.0" prefWidth="436.0">
+            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="76.0" prefHeight="59.0" prefWidth="436.0">
                <children>
-                  <Label text="Emri : ">
+                  <Label text="Fjalëkalimi i vjetër :">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
+                  <TextField />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="109.0" prefHeight="36.0" prefWidth="436.0">
                <children>
-                  <Label text="Mbiemri : ">
+                  <Label text="Fjalëkalimi i ri :">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
+                  <TextField prefHeight="25.0" prefWidth="185.0" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" prefHeight="36.0" prefWidth="436.0">
                <children>
-                  <Label text="Email : ">
+                  <Label text="Konfirmo :">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-               </children>
-            </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="243.0" prefHeight="36.0" prefWidth="436.0">
-               <children>
-                  <Label text="Lokacioni : ">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
+                  <TextField prefHeight="25.0" prefWidth="218.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="181.0" prefHeight="95.0" prefWidth="436.0">
