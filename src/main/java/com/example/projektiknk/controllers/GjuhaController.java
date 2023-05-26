@@ -1,6 +1,7 @@
 package com.example.projektiknk.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -15,11 +16,16 @@ import java.util.ResourceBundle;
 
 public class GjuhaController implements Initializable {
 
-    public Button homeID;
-    public Button oraretID;
-    public Button opsionetID;
-    public Button kontaktID;
-    public Button profilID;
+    @FXML
+    private Button homeID;
+    @FXML
+    private Button oraretID;
+    @FXML
+    private Button opsionetID;
+    @FXML
+    private Button kontaktID;
+    @FXML
+    private Button profilID;
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //Kjo metode sherben qe me i ekzekutu funksionet qka nuk jane onclick

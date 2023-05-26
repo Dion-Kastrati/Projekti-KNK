@@ -45,7 +45,7 @@ public class Oraret {
         return kohaNisjes;
     }
 
-    public void setKoha_nisjes(LocalTime kohaNisjes) {
+    public void setKohaNisjes(LocalTime kohaNisjes) {
         this.kohaNisjes = kohaNisjes;
     }
 
