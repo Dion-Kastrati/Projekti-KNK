@@ -19,8 +19,12 @@ import java.sql.SQLException;
 
 
 public class LoginController {
-    public Button loginID;
-    public Button signup_ID;
+    @FXML
+    private Button cancelID;
+    @FXML
+    private Button loginID;
+    @FXML
+    private Button signup_ID;
     //services
     private UserServiceInterface userService;
 
@@ -89,6 +93,7 @@ public class LoginController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) signup_ID.getScene().getWindow();
+            stage.setTitle("Sign up");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -107,13 +112,14 @@ public class LoginController {
     public void onActionGuest(ActionEvent actionEvent) {
         try {
             // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/normalUserHome.fxml"));
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) guest_ID.getScene().getWindow();
+            stage.setTitle("Guest - Oraret");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

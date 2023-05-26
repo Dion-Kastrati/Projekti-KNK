@@ -27,6 +27,7 @@ public class profilController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) homeID.getScene().getWindow();
+            stage.setTitle("User home");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -44,6 +45,7 @@ public class profilController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) oraretID.getScene().getWindow();
+            stage.setTitle("Oraret");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -51,7 +53,7 @@ public class profilController {
         }
     }
 
-    public void sendToOpsionet(ActionEvent event) {
+    public void sendToGjuha(ActionEvent event) {
         try {
             // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/gjuha.fxml"));
@@ -61,6 +63,7 @@ public class profilController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) opsionetID.getScene().getWindow();
+            stage.setTitle("Zgjedh Gjuhen");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -78,6 +81,7 @@ public class profilController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) profilID.getScene().getWindow();
+            stage.setTitle("User Profile");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

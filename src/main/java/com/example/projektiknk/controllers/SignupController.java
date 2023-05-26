@@ -54,6 +54,7 @@ public class SignupController {
 
                 // Get the current stage (window) and set the new scene
                 Stage stage = (Stage) signupID.getScene().getWindow();
+                stage.setTitle("User Home");
                 stage.setScene(scene);
                 stage.show();
             } else {
@@ -79,6 +80,7 @@ public class SignupController {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) login_ID.getScene().getWindow();
+            stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

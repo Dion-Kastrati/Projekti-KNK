@@ -13,7 +13,7 @@
             <items>
                 <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
                 <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false" onAction="#sendToOpsionet" onMouseClicked="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
+                <Button fx:id="opsionetID" mnemonicParsing="false" onAction="#sendToGjuha" onMouseClicked="#sendToGjuha" style="-fx-background-color: #0000;" text="Gjuha" />
                 <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToProfili" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>

@@ -8,6 +8,14 @@ import javafx.scene.input.MouseEvent;
 
 public class ankesaController {
     @FXML
+    private  Button profilID;
+    @FXML
+    private  Button gjuhaID;
+    @FXML
+    private  Button oraretID;
+    @FXML
+    private  Button homeID;
+    @FXML
     private TextArea pershkrimiTxt;
     @FXML
     private ComboBox zgjedhja;
@@ -15,12 +23,14 @@ public class ankesaController {
     private Button dergoBtn;
 
     public void sendToHome(MouseEvent mouseEvent) {
+
     }
 
     public void sendToOraret(MouseEvent mouseEvent) {
     }
 
-    public void sendToOpsionet(MouseEvent mouseEvent) {
+    public void sendToGjuha(MouseEvent mouseEvent) {
+
     }
 
     public void sendToProfili(MouseEvent mouseEvent) {
