@@ -46,7 +46,7 @@
                <children>
                   <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="-2.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@adress.jpg" />
+                        <Image url="@../../../images/adress.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -55,7 +55,7 @@
                <children>
                   <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="-4.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@clock.png" />
+                        <Image url="@../../../images/clock.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -63,7 +63,7 @@
 <!--            <AnchorPane layoutX="328.0" layoutY="235.0" prefHeight="34.0" prefWidth="39.0" />-->
             <ImageView fitHeight="31.0" fitWidth="32.0" layoutX="329.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@phone.png" />
+                  <Image url="@../../../images/phone.png" />
                </image>
             </ImageView>
             <Text layoutX="375.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bregu i diellit, Prishtine">

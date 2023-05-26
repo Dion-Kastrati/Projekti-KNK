@@ -65,7 +65,7 @@
                <children>
                   <ImageView fitHeight="503.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@buss1.jpg" />
+                        <Image url="@../../../images/buss1.jpg" />
                      </image>
                   </ImageView>
                   <Text fill="#ffd100" layoutX="125.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="eBus" wrappingWidth="70.205810546875">
