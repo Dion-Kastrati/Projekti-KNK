@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Perkthimet;
+//import models.Perkthimet;
 import models.User;
 import services.UserAuthService;
 

@@ -1,16 +1,17 @@
 package models;
 
+import java.sql.Time;
 import java.time.LocalTime;
 
 public class Oraret {
     private int busId;
     private String prej;
     private String deri;
-    private LocalTime kohaNisjes;
-    private LocalTime kohaArritjes;
+    private String kohaNisjes;
+    private String kohaArritjes;
     private double cmimiBiletes;
 
-    public Oraret(int busId, String prej, String deri, LocalTime kohaNisjes, LocalTime kohaArritjes, double cmimiBiletes) {
+    public Oraret(int busId, String prej, String deri, String kohaNisjes, String kohaArritjes, double cmimiBiletes) {
         this.busId = busId;
         this.prej = prej;
         this.deri = deri;
@@ -41,19 +42,19 @@ public class Oraret {
         this.deri = deri;
     }
 
-    public LocalTime getKohaNisjes() {
+    public String getKohaNisjes() {
         return kohaNisjes;
     }
 
-    public void setKohaNisjes(LocalTime kohaNisjes) {
+    public void setKohaNisjes(String kohaNisjes) {
         this.kohaNisjes = kohaNisjes;
     }
 
-    public LocalTime getKohaArritjes() {
+    public String getKohaArritjes() {
         return kohaArritjes;
     }
 
-    public void setKohaArritjes(LocalTime kohaArritjes) {
+    public void setKohaArritjes(String kohaArritjes) {
         this.kohaArritjes = kohaArritjes;
     }
 
