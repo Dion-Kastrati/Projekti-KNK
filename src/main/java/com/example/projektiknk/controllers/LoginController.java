@@ -3,43 +3,53 @@ package com.example.projektiknk.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.User;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
-
+import services.Perkthimet;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
-public class LoginController {
+public class LoginController implements Initializable {
     @FXML
     private Button cancelID;
     @FXML
     private Button loginID;
     @FXML
     private Button signup_ID;
-    //services
-    private UserServiceInterface userService;
-
+    @FXML
+    private Button guest_ID;;
     @FXML
     private TextField usernameID;
     @FXML
     private PasswordField passwordID;
     @FXML
-    private Button guest_ID;
+    private Text or_label;
     @FXML
-    private Button homeID;
+    private Label notmember_label;
+    @FXML
+    private Label username_label;
+    @FXML
+    private Label password_label;
+    private UserServiceInterface userService;
+    private static String selectedLanguage;
+    private Perkthimet perkthimet;
 
-     public LoginController() {
+
+    public LoginController() {
         userService = new UserService(); // Replace UserService with the actual implementation class name
     }
+
     @FXML
     private void onActionLogin(ActionEvent e)  {
         String username = this.usernameID.getText();
@@ -73,7 +83,7 @@ public class LoginController {
             showErrorMessage("An error occurred during login. Please try again.");
         }
     }
-    
+
 
     @FXML
     private void onActionCancel(ActionEvent e){
@@ -81,6 +91,18 @@ public class LoginController {
          this.passwordID.clear();
     }
 
+    @FXML
+    private void enClick(ActionEvent e){
+        selectedLanguage = "en";
+        Locale.setDefault(new Locale(selectedLanguage));
+        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
+    }
+    @FXML
+    private void sqClick(ActionEvent e){
+        selectedLanguage = "sq";
+        Locale.setDefault(new Locale(selectedLanguage));
+        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
+    }
 
     @FXML
     public void onActionSignup(ActionEvent event) {
@@ -100,14 +122,6 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-    private void showErrorMessage(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Login Error");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
 
     public void onActionGuest(ActionEvent actionEvent) {
         try {
@@ -125,6 +139,20 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Login Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        perkthimet=new Perkthimet();
+        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
     }
 }
 

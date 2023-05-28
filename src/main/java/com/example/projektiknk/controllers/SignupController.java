@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import models.Perkthimet;
+import services.Perkthimet;
 import models.User;
 import services.UserAuthService;
 
@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class SignupController implements Initializable{
+public class SignupController implements Initializable {
 
     @FXML
     public Button login_ID;
@@ -50,16 +50,32 @@ public class SignupController implements Initializable{
     private Label password_label;
     @FXML
     private Label alreadymember_label;
+    private String selectedLanguage;
+    private Perkthimet perkthimet;
+    private ResourceBundle resourceBundle;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        loadResourceBundle("sq"); //Default e kom lon shqip
+        perkthimet=new Perkthimet();
+        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
+                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
+    }
     @FXML
     private void enClick(ActionEvent e){
-        Locale.setDefault(new Locale("en"));
-        this.translate();
+        selectedLanguage = "en";
+        Locale.setDefault(new Locale(selectedLanguage));
+        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
+                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
+
     }
     @FXML
     private void sqClick(ActionEvent e){
-        Locale.setDefault(new Locale("sq"));
-        this.translate();
+        selectedLanguage = "sq";
+        Locale.setDefault(new Locale(selectedLanguage));
+        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
+                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
+
     }
     public void signupClick(ActionEvent event) {
         String emri = emriID.getText();
@@ -70,6 +86,18 @@ public class SignupController implements Initializable{
         // Input validation checks
         if (emri.isEmpty() || mbiemri.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
             showErrorMessage("Please fill in all the fields.");
+            return;
+        }
+
+        // Email validation
+        if (!isValidEmail(email)) {
+            showErrorMessage("Invalid email address.");
+            return;
+        }
+
+        // Password validation
+        if (password.length() < 8) {
+            showErrorMessage("Password should be at least 8 characters long.");
             return;
         }
 
@@ -126,30 +154,20 @@ public class SignupController implements Initializable{
         alert.setContentText(message);
         alert.showAndWait();
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        Locale locale =Locale.getDefault();
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email.matches(emailRegex);
     }
-    public void translate(){
-        Locale currentLocale = Locale.getDefault();
-        ResourceBundle translate = ResourceBundle.getBundle("translations.content", currentLocale);
 
-        signupID.setText(translate.getString("signupID"));
-        emri_label.setText(translate.getString("emri_label"));
-        mbiemri_label.setText(translate.getString("mbiemri_label"));
-        email_label.setText(translate.getString("email_label"));
-        username_label.setText(translate.getString("username_label"));
-        password_label.setText(translate.getString("password_label"));
-        emriID.setPromptText(translate.getString("emriID"));
-        mbiemriID.setPromptText(translate.getString("mbiemriID"));
-        emailID.setPromptText(translate.getString("emailID"));
-        usernameID.setPromptText(translate.getString("usernameID"));
-        passwordID.setPromptText(translate.getString("passwordID"));
-        shqip_ID.setText(translate.getString("shqip_ID"));
-        english_ID.setText(translate.getString("english_ID"));
-        alreadymember_label.setText(translate.getString("alreadymember_label"));
-        login_ID.setText(translate.getString("login_ID"));
+    private void loadResourceBundle(String language) {
+        try {
+            resourceBundle = ResourceBundle.getBundle("translations.content", new Locale(language));
+            Perkthimet.setSelectedLanguage(language);
+        } catch (Exception e){
+            System.out.println("Doesnt work");
+        }
     }
+
+
 
 }
