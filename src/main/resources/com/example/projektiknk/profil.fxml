@@ -36,7 +36,7 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="207.0" prefHeight="33.0" prefWidth="121.0">
                <children>
-                  <Button fx:id="gjuha_ID" mnemonicParsing="false" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
+                  <Button fx:id="gjuha_ID" mnemonicParsing="false" onAction="#sendToGjuha" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
                </children>
             </HBox>
             <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="240.0" prefHeight="88.0" prefWidth="164.0">
@@ -56,7 +56,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="66.0" prefWidth="436.0">
                <children>
-                  <Label fx:id="dhenat_ID" prefHeight="36.0" prefWidth="135.0" text="Të dhënat">
+                  <Label fx:id="dhenat_ID" alignment="CENTER" prefHeight="36.0" prefWidth="135.0" text="Të dhënat">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>

@@ -14,7 +14,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
 
-                App.class.getResource("profil.fxml")
+                App.class.getResource("home.fxml")
 
         );
 

@@ -8,16 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class profilController implements Initializable {
+public class gjuhaController implements Initializable {
     @FXML
     private Button homeID;
     @FXML
@@ -29,28 +28,33 @@ public class profilController implements Initializable {
     @FXML
     private Button ProfilID;
     @FXML
-    private Button logout_ID;
-    @FXML
     private Button gjuha_ID;
+    @FXML
+    private Label Gjuha_ID;
+    @FXML
+    private Button logout_ID;
     @FXML
     private Button perditesoBtn_ID;
     @FXML
-    private Label emri_label;
+    private Button shqip_ID;
     @FXML
-    private Label mbiemri_label;
-    @FXML
-    private Label lokacioni_label;
-    @FXML
-    private Label dhenat_ID;
-    @FXML
-    private Label email_label;
-    private Perkthimet perkthimet;
+    private Button english_ID;
+
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        perkthimet=new Perkthimet();
-        perkthimet.translate(homeID, oraretID, profilID, emri_label,mbiemri_label,email_label, fjalkalimiBtn_ID,
-                logout_ID, ProfilID, gjuha_ID,lokacioni_label,perditesoBtn_ID,dhenat_ID);
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        translate();
+    }
+    @FXML
+    private void enClick(ActionEvent e){
+        Locale.setDefault(new Locale("en"));
+        translate();
+
+    }
+    @FXML
+    private void sqClick(ActionEvent e){
+        Locale.setDefault(new Locale("sq"));
+        translate();
     }
 
     public void sendToHome(ActionEvent event) {
@@ -89,7 +93,7 @@ public class profilController implements Initializable {
         }
     }
 
-    public void sendToProfili(ActionEvent event){
+    public void sendToProfili(ActionEvent event) {
         try {
             // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/profil.fxml"));
@@ -106,9 +110,11 @@ public class profilController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void sendToPassword(ActionEvent event){
+
+
+    public void sendToPassword(ActionEvent event) {
         try {
-            // Load the ChangePass.fxml file
+            // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/ChangePass.fxml"));
 
             // Create a new scene with the loaded FXML file
@@ -123,9 +129,10 @@ public class profilController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void sendToGjuha(ActionEvent event){
+
+    public void sendToGjuha(ActionEvent event) {
         try {
-            // Load the ChangePass.fxml file
+            // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/gjuha.fxml"));
 
             // Create a new scene with the loaded FXML file
@@ -140,10 +147,12 @@ public class profilController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void sendToLogin(ActionEvent event){
+
+    @FXML
+    public void sendToLogin(ActionEvent event) {
         try {
             // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/signup.fxml"));
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
@@ -157,4 +166,22 @@ public class profilController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void translate() {
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        homeID.setText(translate.getString("homeID"));
+        oraretID.setText(translate.getString("oraretID"));
+        profilID.setText(translate.getString("profilID"));
+        shqip_ID.setText(translate.getString("shqip_ID"));
+        english_ID.setText(translate.getString("english_ID"));
+        fjalkalimiBtn_ID.setText(translate.getString("fjalkalimiBtn_ID"));
+        logout_ID.setText(translate.getString("logout_ID"));
+        ProfilID.setText(translate.getString("ProfilID"));
+        gjuha_ID.setText(translate.getString("gjuha_ID"));
+        Gjuha_ID.setText(translate.getString("Gjuha_ID"));
+        perditesoBtn_ID.setText(translate.getString("perditesoBtn_ID"));
+
+    }
 }
+

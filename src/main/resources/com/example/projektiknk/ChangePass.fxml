@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -27,7 +26,7 @@
          <children>
             <ImageView fx:id="imageID" fitHeight="164.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@profile.jpg" />
+<!--                  <Image url="@profile.jpg" />-->
                </image>
             </ImageView>
             <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="121.0">
@@ -42,12 +41,12 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="207.0" prefHeight="33.0" prefWidth="121.0">
                <children>
-                  <Button fx:id="gjuha_ID" mnemonicParsing="false" onAction="#sendToOpsionet" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
+                  <Button fx:id="gjuha_ID" mnemonicParsing="false" onAction="#sendToGjuha" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
                </children>
             </HBox>
             <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="240.0" prefHeight="88.0" prefWidth="164.0">
                <children>
-                  <Button fx:id="logout" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="29.0" prefWidth="51.0" text="çkyçu">
+                  <Button fx:id="logout_ID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="30.0" prefWidth="74.0" text="çkyçu">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -62,16 +61,16 @@
          <children>
             <HBox alignment="CENTER" prefHeight="66.0" prefWidth="436.0">
                <children>
-                  <Label prefHeight="36.0" prefWidth="135.0" text="Fjalëkalimi">
+                  <Label fx:id="passwordID" alignment="CENTER" prefHeight="36.0" prefWidth="135.0" text="Fjalëkalimi">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="76.0" prefHeight="59.0" prefWidth="436.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="76.0" prefHeight="38.0" prefWidth="414.0">
                <children>
-                  <Label text="Fjalëkalimi i vjetër :">
+                  <Label fx:id="oldPass_ID" contentDisplay="CENTER" text="Fjalëkalimi i vjetër :">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -79,9 +78,9 @@
                   <TextField />
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="109.0" prefHeight="36.0" prefWidth="436.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="109.0" prefHeight="38.0" prefWidth="414.0">
                <children>
-                  <Label text="Fjalëkalimi i ri :">
+                  <Label fx:id="newPass_ID" text="Fjalëkalimi i ri :">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -89,9 +88,9 @@
                   <TextField prefHeight="25.0" prefWidth="185.0" />
                </children>
             </HBox>
-            <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" prefHeight="36.0" prefWidth="436.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="112.0" prefHeight="38.0" prefWidth="414.0">
                <children>
-                  <Label text="Konfirmo :">
+                  <Label fx:id="confirmPass_ID" text="Konfirmo :">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -101,7 +100,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="181.0" prefHeight="95.0" prefWidth="436.0">
                <children>
-                  <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="23.0" prefWidth="81.0" text="Përditsimi">
+                  <Button fx:id="perditesoBtn_ID" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="23.0" prefWidth="81.0" text="Përditsimi">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

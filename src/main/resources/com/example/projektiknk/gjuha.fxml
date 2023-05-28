@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.gjuhaController">
+    <top>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
+            <items>
+                <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
+                <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
+                <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
+            </items>
+        </ToolBar>
+    </top>
+    <left>
+        <VBox prefHeight="291.0" prefWidth="164.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fx:id="imageID" fitHeight="164.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <!--                  <Image url="@profile.jpg" />-->
+                    </image>
+                </ImageView>
+                <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="121.0">
+                    <children>
+                        <Button fx:id="ProfilID" mnemonicParsing="false" onAction="#sendToProfili" prefHeight="56.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Profili" />
+                    </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="174.0" prefHeight="33.0" prefWidth="121.0">
+                    <children>
+                        <Button fx:id="fjalkalimiBtn_ID" mnemonicParsing="false" onAction="#sendToPassword" prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: transparent;" text="Fjalëkalimi" />
+                    </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="207.0" prefHeight="33.0" prefWidth="121.0">
+                    <children>
+                        <Button fx:id="gjuha_ID" mnemonicParsing="false" onAction="#sendToGjuha" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
+                    </children>
+                </HBox>
+                <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="240.0" prefHeight="88.0" prefWidth="164.0">
+                    <children>
+                        <Button fx:id="logout_ID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="30.0" prefWidth="74.0" text="çkyçu">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="244.0" prefWidth="436.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" prefHeight="66.0" prefWidth="436.0">
+                    <children>
+                        <Label fx:id="Gjuha_ID" alignment="CENTER" prefHeight="46.0" prefWidth="188.0" text="Gjuha">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="76.0" prefHeight="38.0" prefWidth="414.0">
+               <children>
+                  <Button fx:id="shqip_ID" mnemonicParsing="false" onAction="#sqClick" text="Shqip" />
+               </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="109.0" prefHeight="36.0" prefWidth="436.0">
+               <children>
+                  <Button fx:id="english_ID" mnemonicParsing="false" onAction="#enClick" text="Anglisht" />
+               </children>
+                </HBox>
+                <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="112.0" prefHeight="36.0" prefWidth="436.0" />
+                <HBox alignment="CENTER" layoutX="10.0" layoutY="181.0" prefHeight="95.0" prefWidth="436.0">
+                    <children>
+                        <Button fx:id="perditesoBtn_ID" alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="23.0" prefWidth="81.0" text="Përditsimi">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
