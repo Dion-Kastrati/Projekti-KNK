@@ -13,6 +13,7 @@ import models.User;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
 import services.Perkthimet;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -28,7 +29,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button signup_ID;
     @FXML
-    private Button guest_ID;;
+    private Button guest_ID;
+    ;
     @FXML
     private TextField usernameID;
     @FXML
@@ -43,7 +45,6 @@ public class LoginController implements Initializable {
     private Label password_label;
     private UserServiceInterface userService;
     private static String selectedLanguage;
-    private Perkthimet perkthimet;
 
 
     public LoginController() {
@@ -51,7 +52,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private void onActionLogin(ActionEvent e)  {
+    private void onActionLogin(ActionEvent e) {
         String username = this.usernameID.getText();
         String password = this.passwordID.getText();
 
@@ -86,22 +87,23 @@ public class LoginController implements Initializable {
 
 
     @FXML
-    private void onActionCancel(ActionEvent e){
-         this.usernameID.clear();
-         this.passwordID.clear();
+    private void onActionCancel(ActionEvent e) {
+        this.usernameID.clear();
+        this.passwordID.clear();
     }
 
     @FXML
-    private void enClick(ActionEvent e){
+    private void enClick(ActionEvent e) {
         selectedLanguage = "en";
         Locale.setDefault(new Locale(selectedLanguage));
-        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
+        translate();
     }
+
     @FXML
-    private void sqClick(ActionEvent e){
+    private void sqClick(ActionEvent e) {
         selectedLanguage = "sq";
         Locale.setDefault(new Locale(selectedLanguage));
-        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
+        translate();
     }
 
     @FXML
@@ -150,9 +152,23 @@ public class LoginController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        perkthimet=new Perkthimet();
-        perkthimet.translate(cancelID, loginID, signup_ID, guest_ID, usernameID, passwordID, or_label, notmember_label, username_label, password_label);
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        translate();
+    }
+
+    public void translate() {
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        username_label.setText(translate.getString("username_label"));
+        password_label.setText(translate.getString("password_label"));
+        or_label.setText(translate.getString("or_label"));
+        notmember_label.setText(translate.getString("notmember_label"));
+        guest_ID.setText(translate.getString("guest_ID"));
+        cancelID.setText(translate.getString("cancelID"));
+        loginID.setText(translate.getString("loginID"));
+        signup_ID.setText(translate.getString("signup_ID"));
+        usernameID.setPromptText(translate.getString("usernameID"));
+        passwordID.setPromptText(translate.getString("passwordID"));
     }
 }
 

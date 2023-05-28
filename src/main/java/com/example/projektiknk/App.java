@@ -14,12 +14,12 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
 
-                App.class.getResource("home.fxml")
+                App.class.getResource("login.fxml")
 
         );
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Home");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }

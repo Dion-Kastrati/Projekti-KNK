@@ -15,9 +15,9 @@
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
-                <Button fx:id="homeID" mnemonicParsing="false" onMouseClicked="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false" onMouseClicked="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="profilID" mnemonicParsing="false" onMouseClicked="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
+                <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
+                <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
+                <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
     </top>
@@ -31,7 +31,7 @@
             </Text>
             <TextArea fx:id="pershkrimiTxt" layoutX="74.0" layoutY="118.0" prefHeight="132.0" prefWidth="200.0" promptText="Shkruaj Kerkesen/Ankesen" />
             <ComboBox fx:id="zgjedhja" layoutX="74.0" layoutY="75.0" prefHeight="26.0" prefWidth="201.0" />
-            <Button fx:id="dergoBtn" layoutX="222.0" layoutY="264.0" mnemonicParsing="false" onMouseClicked="#onclickDergo" style="-fx-background-color: #ffd100;" text="Dergo">
+            <Button fx:id="dergoBtn" layoutX="222.0" layoutY="264.0" mnemonicParsing="false" style="-fx-background-color: #ffd100;" text="Dergo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

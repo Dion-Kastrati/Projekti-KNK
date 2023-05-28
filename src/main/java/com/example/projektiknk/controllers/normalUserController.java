@@ -50,7 +50,6 @@ public class normalUserController implements Initializable {
     private Button loginID;
     @FXML
     private Button signupID;
-    private Perkthimet perkthimet;
 
     public void setData(ObservableList<Oraret> oraretList) {
         tblOraret.setItems(oraretList);

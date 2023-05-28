@@ -59,25 +59,19 @@ public class SignupController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
         selectedLanguage = "sq";
         loadResourceBundle(selectedLanguage);
-        perkthimet=new Perkthimet();
-        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
-                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
+        translate();
     }
     @FXML
     private void enClick(ActionEvent e){
         selectedLanguage = "en";
         Locale.setDefault(new Locale(selectedLanguage));
-        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
-                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
-
+        translate();
     }
     @FXML
     private void sqClick(ActionEvent e){
         selectedLanguage = "sq";
         Locale.setDefault(new Locale(selectedLanguage));
-        perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
-                emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
-
+        translate();
     }
     public void signupClick(ActionEvent event) {
         String emri = emriID.getText();
@@ -170,6 +164,26 @@ public class SignupController implements Initializable {
         }
     }
 
+    public void translate(){
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", currentLocale);
+
+        signupID.setText(translate.getString("signupID"));
+        emri_label.setText(translate.getString("emri_label"));
+        mbiemri_label.setText(translate.getString("mbiemri_label"));
+        email_label.setText(translate.getString("email_label"));
+        username_label.setText(translate.getString("username_label"));
+        password_label.setText(translate.getString("password_label"));
+        emriID.setPromptText(translate.getString("emriID"));
+        mbiemriID.setPromptText(translate.getString("mbiemriID"));
+        emailID.setPromptText(translate.getString("emailID"));
+        usernameID.setPromptText(translate.getString("usernameID"));
+        passwordID.setPromptText(translate.getString("passwordID"));
+        shqip_ID.setText(translate.getString("shqip_ID"));
+        english_ID.setText(translate.getString("english_ID"));
+        alreadymember_label.setText(translate.getString("alreadymember_label"));
+        login_ID.setText(translate.getString("login_ID"));
+    }
 
 
 }

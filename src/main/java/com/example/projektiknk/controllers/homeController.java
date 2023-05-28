@@ -14,6 +14,7 @@ import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class homeController implements Initializable {
@@ -29,12 +30,10 @@ public class homeController implements Initializable {
     private Button dergoAnkese;
     @FXML
     private Text textHome_ID;
-    private  Perkthimet perkthimet;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        perkthimet=new Perkthimet();
-        perkthimet.translate(homeID, oraretID, profilID, shikoOraret, dergoAnkese, textHome_ID);
+        translate();
     }
 
     public void sendToHome(ActionEvent event) {
@@ -127,5 +126,16 @@ public class homeController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void translate(){
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        homeID.setText(translate.getString("homeID"));
+        oraretID.setText(translate.getString("oraretID"));
+        profilID.setText(translate.getString("profilID"));
+        shikoOraret.setText(translate.getString("shikoOraret"));
+        dergoAnkese.setText(translate.getString("dergoAnkese"));
+        textHome_ID.setText(translate.getString("textHome_ID"));
+
     }
 }

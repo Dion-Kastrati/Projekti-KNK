@@ -15,6 +15,7 @@ import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class profilController implements Initializable {
@@ -44,13 +45,10 @@ public class profilController implements Initializable {
     private Label dhenat_ID;
     @FXML
     private Label email_label;
-    private Perkthimet perkthimet;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        perkthimet=new Perkthimet();
-        perkthimet.translate(homeID, oraretID, profilID, emri_label,mbiemri_label,email_label, fjalkalimiBtn_ID,
-                logout_ID, ProfilID, gjuha_ID,lokacioni_label,perditesoBtn_ID,dhenat_ID);
+        translate();
     }
 
     public void sendToHome(ActionEvent event) {
@@ -142,7 +140,7 @@ public class profilController implements Initializable {
     }
     public void sendToLogin(ActionEvent event){
         try {
-            // Load the signup.fxml file
+            // Load the login.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/login.fxml"));
 
             // Create a new scene with the loaded FXML file
@@ -156,5 +154,24 @@ public class profilController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void translate(){
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        homeID.setText(translate.getString("homeID"));
+        oraretID.setText(translate.getString("oraretID"));
+        profilID.setText(translate.getString("profilID"));
+        emri_label.setText(translate.getString("emri_label"));
+        mbiemri_label.setText(translate.getString("mbiemri_label"));
+        email_label.setText(translate.getString("email_label"));
+        fjalkalimiBtn_ID.setText(translate.getString("fjalkalimiBtn_ID"));
+        logout_ID.setText(translate.getString("logout_ID"));
+        ProfilID.setText(translate.getString("ProfilID"));
+        gjuha_ID.setText(translate.getString("gjuha_ID"));
+        lokacioni_label.setText(translate.getString("lokacioni_label"));
+        dhenat_ID.setText(translate.getString("dhenat_ID"));
+        perditesoBtn_ID.setText(translate.getString("perditesoBtn_ID"));
+
     }
 }

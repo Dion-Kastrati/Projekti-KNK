@@ -43,8 +43,6 @@ public class passwordController implements Initializable {
     private Label confirmPass_ID;
 
 
-    private Perkthimet perkthimet;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
        translate();
@@ -139,8 +137,8 @@ public class passwordController implements Initializable {
         @FXML
         public void sendToLogin(ActionEvent event){
             try {
-                // Load the signup.fxml file
-                Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/signup.fxml"));
+                // Load the login.fxml file
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/login.fxml"));
 
                 // Create a new scene with the loaded FXML file
                 Scene scene = new Scene(root);
