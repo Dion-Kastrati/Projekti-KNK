@@ -2,13 +2,12 @@ package services;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import models.Oraret;
 
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -62,5 +61,37 @@ public class Perkthimet {
         usernameID.setPromptText(translate.getString("usernameID"));
         passwordID.setPromptText(translate.getString("passwordID"));
     }
+    public void translate(Button homeID, Button oraretID,Button profilID,Button shikoOraret,Button dergoAnkese,Text textHome_ID){
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        homeID.setText(translate.getString("homeID"));
+        oraretID.setText(translate.getString("oraretID"));
+        profilID.setText(translate.getString("profilID"));
+        shikoOraret.setText(translate.getString("shikoOraret"));
+        dergoAnkese.setText(translate.getString("dergoAnkese"));
+        textHome_ID.setText(translate.getString("textHome_ID"));
+
+    }
+
+    public void translate(Button homeID,Button oraretID,Button profilID,Label emri_label,Label mbiemri_label,Label email_label,
+                          Button fjalkalimiBtn_ID,Button logout_ID,Button ProfilID,Button gjuha_ID,Label lokacioni_label,Button perditesoBtn_ID,Label dhenat_ID){
+        ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
+
+        homeID.setText(translate.getString("homeID"));
+        oraretID.setText(translate.getString("oraretID"));
+        profilID.setText(translate.getString("profilID"));
+        emri_label.setText(translate.getString("emri_label"));
+        mbiemri_label.setText(translate.getString("mbiemri_label"));
+        email_label.setText(translate.getString("email_label"));
+        fjalkalimiBtn_ID.setText(translate.getString("fjalkalimiBtn_ID"));
+        logout_ID.setText(translate.getString("logout_ID"));
+        ProfilID.setText(translate.getString("ProfilID"));
+        gjuha_ID.setText(translate.getString("gjuha_ID"));
+        lokacioni_label.setText(translate.getString("lokacioni_label"));
+        dhenat_ID.setText(translate.getString("dhenat_ID"));
+        perditesoBtn_ID.setText(translate.getString("perditesoBtn_ID"));
+
+    }
+
 
 }

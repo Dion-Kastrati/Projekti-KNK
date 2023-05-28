@@ -12,13 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.profilController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.passwordController">
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
                 <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
                 <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-                <Button fx:id="opsionetID" mnemonicParsing="false" onAction="#sendToOpsionet" style="-fx-background-color: #0000;" text="Gjuha" />
                 <Button fx:id="profilID" mnemonicParsing="false" onAction="#sendToProfili" style="-fx-background-color: #0000;" text="Profili" />
             </items>
         </ToolBar>
@@ -38,12 +37,12 @@
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="174.0" prefHeight="33.0" prefWidth="121.0">
                <children>
-                  <Button fx:id="fjalkalimi" mnemonicParsing="false" onAction="#sendToPassword" prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: transparent;" text="Fjalëkalimi" />
+                  <Button fx:id="fjalkalimiBtn_ID" mnemonicParsing="false" onAction="#sendToPassword" prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: transparent;" text="Fjalëkalimi" />
                </children>
             </HBox>
             <HBox alignment="TOP_CENTER" layoutX="10.0" layoutY="207.0" prefHeight="33.0" prefWidth="121.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
+                  <Button fx:id="gjuha_ID" mnemonicParsing="false" onAction="#sendToOpsionet" prefHeight="77.0" prefWidth="223.0" style="-fx-background-color: transparent;" text="Gjuha" />
                </children>
             </HBox>
             <HBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="240.0" prefHeight="88.0" prefWidth="164.0">

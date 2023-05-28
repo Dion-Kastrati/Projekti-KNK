@@ -13,11 +13,9 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-<<<<<<< Updated upstream
-                App.class.getResource("login.fxml")
-=======
-                App.class.getResource("signup.fxml")
->>>>>>> Stashed changes
+
+                App.class.getResource("profil.fxml")
+
         );
 
         Scene scene = new Scene(fxmlLoader.load());

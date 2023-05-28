@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Oraret;
 import services.ConnectionUtil;
+import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +50,7 @@ public class normalUserController implements Initializable {
     private Button loginID;
     @FXML
     private Button signupID;
+    private Perkthimet perkthimet;
 
     public void setData(ObservableList<Oraret> oraretList) {
         tblOraret.setItems(oraretList);
@@ -56,8 +58,7 @@ public class normalUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
+         try {
             ObservableList<String> vendNisja = vendNisja();
             comboNisja.setItems(vendNisja);
 //            comboNisja.setOnAction(this::onActionShfaqLinjat);

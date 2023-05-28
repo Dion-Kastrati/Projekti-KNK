@@ -3,30 +3,38 @@ package com.example.projektiknk.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import services.Perkthimet;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class homeController {
+public class homeController implements Initializable {
     @FXML
     private Button homeID;
     @FXML
     private Button oraretID;
-    @FXML
-    private Button opsionetID;
     @FXML
     private Button profilID;
     @FXML
     private Button shikoOraret;
     @FXML
     private Button dergoAnkese;
+    @FXML
+    private Text textHome_ID;
+    private  Perkthimet perkthimet;
 
-    public class initialize {
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        perkthimet=new Perkthimet();
+        perkthimet.translate(homeID, oraretID, profilID, shikoOraret, dergoAnkese, textHome_ID);
     }
 
     public void sendToHome(ActionEvent event) {

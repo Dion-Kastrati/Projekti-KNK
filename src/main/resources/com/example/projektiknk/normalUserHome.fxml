@@ -14,17 +14,17 @@
         <Button fx:id="loginID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: #ffd100;" text="Login" />
         <Button fx:id="signupID" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToSignup" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #ffd100;" text="Signup" />
     </ToolBar>
-   <Label fx:id="ngaLable" layoutX="145.0" layoutY="95.0" text="Nga:" />
-   <ComboBox fx:id="comboNisja" layoutX="145.0" layoutY="115.0" prefWidth="150.0" />
-   <Label fx:id="deriLable" layoutX="349.0" layoutY="95.0" text="Deri:" />
-   <ComboBox fx:id="comboDestinacioni" layoutX="349.0" layoutY="115.0" prefWidth="150.0" />
-   <Button fx:id="gjejLinjat" layoutX="566.0" layoutY="115.0" mnemonicParsing="false" onAction="#onActionShfaqLinjat" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #ffd100;" text="Gjej Linjat" />
+   <Label fx:id="ngaLable_ID" layoutX="145.0" layoutY="95.0" text="Nga:" />
+   <ComboBox fx:id="comboNisja_ID" layoutX="145.0" layoutY="115.0" prefWidth="150.0" />
+   <Label fx:id="deriLable_ID" layoutX="349.0" layoutY="95.0" text="Deri:" />
+   <ComboBox fx:id="comboDestinacioni_ID" layoutX="349.0" layoutY="115.0" prefWidth="150.0" />
+   <Button fx:id="gjejLinjat_ID" layoutX="566.0" layoutY="115.0" mnemonicParsing="false" onAction="#onActionShfaqLinjat" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #ffd100;" text="Gjej Linjat" />
     <TableView fx:id="tblOraret" layoutX="111.0" layoutY="190.0" prefHeight="251.0" prefWidth="578.0">
       <columns>
-          <TableColumn fx:id="kompaniaColumn" prefWidth="156.0" text="Kompania" />
-          <TableColumn fx:id="nisjaColumn" minWidth="0.0" prefWidth="140.0" text="Koha e nisjes" />
-          <TableColumn fx:id="arritjaColumn" minWidth="0.0" prefWidth="133.60003662109375" text="Koha e arritjes" />
-          <TableColumn fx:id="biletaColumn" minWidth="0.0" prefWidth="148.79998779296875" text="Cmimi i biletes" />
+          <TableColumn fx:id="kompaniaColumn_ID" prefWidth="156.0" text="Kompania" />
+          <TableColumn fx:id="nisjaColumn_ID" minWidth="0.0" prefWidth="140.0" text="Koha e nisjes" />
+          <TableColumn fx:id="arritjaColumn_ID" minWidth="0.0" prefWidth="133.60003662109375" text="Koha e arritjes" />
+          <TableColumn fx:id="biletaColumn_ID" minWidth="0.0" prefWidth="148.79998779296875" text="Cmimi i biletes" />
       </columns>
     </TableView>
     <Pagination fx:id="oraretPagination" layoutX="300.0" layoutY="442.0" prefHeight="40.0" prefWidth="200.0" />

@@ -57,7 +57,8 @@ public class SignupController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        loadResourceBundle("sq"); //Default e kom lon shqip
+        selectedLanguage = "sq";
+        loadResourceBundle(selectedLanguage);
         perkthimet=new Perkthimet();
         perkthimet.translate(signupID, emri_label, mbiemri_label, email_label, username_label, password_label,
                 emriID, mbiemriID, emailID, usernameID, passwordID, shqip_ID, english_ID, alreadymember_label, login_ID);
