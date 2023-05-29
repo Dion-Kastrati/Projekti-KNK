@@ -12,14 +12,6 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.ankesaController">
-    <top>
-        <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
-            <items>
-                <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #0000;" text="Home" />
-                <Button fx:id="oraretID" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #0000;" text="Oraret" />
-            </items>
-        </ToolBar>
-    </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -84,4 +76,22 @@
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="341.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="loginID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: #ffd100;" text="Login" />
+            <Button fx:id="signupID" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToSignup" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #ffd100;" text="Signup" />
+            <Button fx:id="dergoAnkese" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="7.0" prefWidth="93.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="guest_ID" mnemonicParsing="false" onAction="#onActionGuest" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Oraret" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </Button>
+         </items>
+      </ToolBar>
+   </top>
 </BorderPane>

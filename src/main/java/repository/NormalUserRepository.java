@@ -1,12 +1,15 @@
 package repository;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import models.Oraret;
 import services.ConnectionUtil;
 
 import java.sql.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NormalUserRepository {
 
@@ -48,9 +51,8 @@ public class NormalUserRepository {
     public static Oraret getOrarinPrejDeri(String vendNisja, String destinacioni) throws SQLException {
 //        System.out.printf("Vend Nisja %s - Destinacioni %s", vendNisja, destinacioni);
         String sql = """
-                    SELECT o.bus_id, a.company_name, o.koha_nisjes, o.koha_arritjes, o.cmimi_biletes
-                    FROM oraret o
-                    INNER JOIN bus_company a ON o.bus_id = a.company_id
+                    SELECT *
+                    FROM oraret
                     WHERE o.prej = ? 
                     AND o.deri = ?;
                 """;
@@ -61,20 +63,55 @@ public class NormalUserRepository {
         ResultSet resultSet = preparedStatement.executeQuery();
         if(resultSet.next()){
             System.out.printf("Vend Nisja %s - Destinacioni %s", vendNisja, destinacioni);
-            // TODO: Me i shfaq me ni tabele qe e kemi te krijume prej scene builder
-            int busId = resultSet.getInt("bus_id");
-            String kohaNisjesStr = resultSet.getString("koha_nisjes");
+            int orariID = resultSet.getInt("orari_id");
             String companyName = resultSet.getString("company_name");
-            String kohaNisjes = resultSet.getString("koha_nisjes");
-            String kohaArritjes = resultSet.getString("koha_arritjes");
+            int kohaNisjes = resultSet.getInt("koha_nisjes");
+            int kohaArritjes = resultSet.getInt("koha_arritjes");
             double cmimiBiletes = resultSet.getDouble("cmimi_biletes");
             System.out.printf("Company Name %s - Koha nisjes %s - Koha Arritjes %s - Cmimi i Biletes %s", companyName, kohaNisjes, kohaArritjes, cmimiBiletes);
-            return new Oraret(busId, vendNisja, destinacioni , kohaNisjes, kohaArritjes, cmimiBiletes);
+            return new Oraret(orariID, companyName ,vendNisja, destinacioni , kohaNisjes, kohaArritjes, cmimiBiletes);
         }
         else{
             System.out.println("Nuk ka gjete te dhena for whatever reason");
             return null;
         }
 
+    }
+    public static ObservableList<Oraret> fetchDataFromDatabase() {
+        ObservableList<Oraret> oraretList = FXCollections.observableArrayList();
+
+        try {
+
+            // Create the SQL statement
+            String sql = "SELECT * FROM oraret";
+            Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery(sql);
+
+            // Process the result set
+            while (resultSet.next()) {
+                int oraretId = resultSet.getInt("orari_id");
+                String companyName = resultSet.getString("company_name");
+                String from = resultSet.getString("prej");
+                String to = resultSet.getString("deri");
+                int departureTime = resultSet.getInt("koha_nisjes");
+                int arrivalTime = resultSet.getInt("koha_arritjes");
+                double ticketPrice = resultSet.getDouble("cmimi_biletes");
+
+                Oraret oraret = new Oraret(oraretId, companyName, from, to, departureTime, arrivalTime, ticketPrice);
+                oraretList.add(oraret);
+            }
+
+            // Close resources
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return oraretList;
     }
 }

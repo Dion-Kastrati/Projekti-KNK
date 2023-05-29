@@ -8,11 +8,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.normalUserController">
-    <ToolBar layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: #ffd100;">
+    <ToolBar layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="286.0" style="-fx-background-color: #ffd100;">
         <Button fx:id="loginID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: #ffd100;" text="Login" />
         <Button fx:id="signupID" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToSignup" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #ffd100;" text="Signup" />
+      <Button fx:id="dergoAnkese" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="7.0" prefWidth="93.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
     </ToolBar>
    <Label fx:id="ngaLable_ID" layoutX="145.0" layoutY="95.0" text="Nga:" />
    <ComboBox fx:id="comboNisja_ID" layoutX="145.0" layoutY="115.0" prefWidth="150.0" />

@@ -1,68 +1,80 @@
 package models;
 
-import java.sql.Time;
-import java.time.LocalTime;
+import javafx.beans.property.*;
 
 public class Oraret {
-    private int busId;
-    private String prej;
-    private String deri;
-    private String kohaNisjes;
-    private String kohaArritjes;
-    private double cmimiBiletes;
+    private IntegerProperty orariId;
+    private StringProperty companyName;
+    private StringProperty prej;
+    private StringProperty deri;
+    private IntegerProperty kohaNisjes;
+    private IntegerProperty kohaArritjes;
+    private DoubleProperty cmimiBiletes;
 
-    public Oraret(int busId, String prej, String deri, String kohaNisjes, String kohaArritjes, double cmimiBiletes) {
-        this.busId = busId;
-        this.prej = prej;
-        this.deri = deri;
-        this.kohaNisjes = kohaNisjes;
-        this.kohaArritjes = kohaArritjes;
-        this.cmimiBiletes = cmimiBiletes;
+    public Oraret(int orariId, String companyName, String prej, String deri, int kohaNisjes,
+                  int kohaArritjes, double cmimiBiletes) {
+        this.orariId = new SimpleIntegerProperty(orariId);
+        this.companyName = new SimpleStringProperty(companyName);
+        this.prej = new SimpleStringProperty(prej);
+        this.deri = new SimpleStringProperty(deri);
+        this.kohaNisjes = new SimpleIntegerProperty(kohaNisjes);
+        this.kohaArritjes = new SimpleIntegerProperty(kohaArritjes);
+        this.cmimiBiletes = new SimpleDoubleProperty(cmimiBiletes);
     }
 
-
-    public int getBusId() {
-        return busId;
+    public int getOrariId() {
+        return orariId.get();
     }
 
+    public IntegerProperty orariIdProperty() {
+        return orariId;
+    }
+
+    public String getCompanyName() {
+        return companyName.get();
+    }
+
+    public StringProperty companyNameProperty() {
+        return companyName;
+    }
 
     public String getPrej() {
+        return prej.get();
+    }
+
+    public StringProperty prejProperty() {
         return prej;
     }
 
-    public void setPrej(String prej) {
-        this.prej = prej;
+    public String getDeri() {
+        return deri.get();
     }
 
-    public String getDeri() {
+    public StringProperty deriProperty() {
         return deri;
     }
 
-    public void setDeri(String deri) {
-        this.deri = deri;
+    public int getKohaNisjes() {
+        return kohaNisjes.get();
     }
 
-    public String getKohaNisjes() {
+    public IntegerProperty kohaNisjesProperty() {
         return kohaNisjes;
     }
 
-    public void setKohaNisjes(String kohaNisjes) {
-        this.kohaNisjes = kohaNisjes;
+    public int getKohaArritjes() {
+        return kohaArritjes.get();
     }
 
-    public String getKohaArritjes() {
+    public IntegerProperty kohaArritjesProperty() {
         return kohaArritjes;
     }
 
-    public void setKohaArritjes(String kohaArritjes) {
-        this.kohaArritjes = kohaArritjes;
-    }
-
     public double getCmimiBiletes() {
-        return cmimiBiletes;
+        return cmimiBiletes.get();
     }
 
-    public void setCmimi_biletes(double cmimiBiletes) {
-        this.cmimiBiletes = cmimiBiletes;
+    public DoubleProperty cmimiBiletesProperty() {
+        return cmimiBiletes;
     }
 }

@@ -24,12 +24,15 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ankesaController  implements Initializable {
-//    @FXML
-//    private  Button profilID;
+
     @FXML
-    private  Button oraretID;
+    private  Button loginID;
     @FXML
-    private  Button homeID;
+    private  Button signupID;
+    @FXML
+    private  Button dergoAnkese;
+    @FXML
+    private  Button guest_ID;
     @FXML
     private TextArea pershkrimiTxt_ID;
     @FXML
@@ -43,33 +46,17 @@ public class ankesaController  implements Initializable {
     }
 
 
-    public void sendToHome(ActionEvent event) {
+    public void sendToLogin(ActionEvent actionEvent) {
         try {
             // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
-
-            // Create a new scene with the loaded FXML file
-            Scene scene = new Scene(root);
-
-            Stage stage = (Stage) homeID.getScene().getWindow();
-            stage.setTitle("Home");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void sendToOraret(ActionEvent event) {
-        try {
-            // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/oraret.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/login.fxml"));
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
 
             // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) oraretID.getScene().getWindow();
-            stage.setTitle("Oraret");
+            Stage stage = (Stage) loginID.getScene().getWindow();
+            stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -77,27 +64,61 @@ public class ankesaController  implements Initializable {
         }
     }
 
+    public void sendToSignup(ActionEvent actionEvent) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/signup.fxml"));
 
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
 
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) signupID.getScene().getWindow();
+            stage.setTitle("Sign up");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void onClickAnkesa(ActionEvent event) {
 
-//    public void sendToProfili(ActionEvent event) {
-//        try {
-//            // Load the signup.fxml file
-//            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/profil.fxml"));
-//
-//            // Create a new scene with the loaded FXML file
-//            Scene scene = new Scene(root);
-//
-//            // Get the current stage (window) and set the new scene
-//            Stage stage = (Stage) profilID.getScene().getWindow();
-//            stage.setTitle("User Profile");
-//            stage.setScene(scene);
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/ankesat.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) dergoAnkese.getScene().getWindow();
+            stage.setTitle("Ankesa");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onActionGuest(ActionEvent actionEvent) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/normalUserHome.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) guest_ID.getScene().getWindow();
+            stage.setTitle("Guest - Oraret");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void onActionDergo(ActionEvent event){
         String email=email_ID.getText();
         String pershkrimiTxt=pershkrimiTxt_ID.getText();
@@ -120,8 +141,6 @@ public class ankesaController  implements Initializable {
     public void translate(){
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
 
-        homeID.setText(translate.getString("homeID"));
-        oraretID.setText(translate.getString("oraretID"));
 
     }
     private void showErrorMessage(String message) {

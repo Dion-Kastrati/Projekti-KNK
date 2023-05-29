@@ -110,22 +110,7 @@ public class homeController implements Initializable {
     }
 
     public void onClickAnkesa(ActionEvent event) {
-
-        try {
-            // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/ankesat.fxml"));
-
-            // Create a new scene with the loaded FXML file
-            Scene scene = new Scene(root);
-
-            // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) dergoAnkese.getScene().getWindow();
-            stage.setTitle("Ankesa");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
     }
     public void translate(){
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());

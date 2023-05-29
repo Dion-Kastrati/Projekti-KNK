@@ -1,5 +1,9 @@
 package com.example.projektiknk.controllers;
 
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,33 +13,34 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import models.Oraret;
 import services.ConnectionUtil;
-import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.time.LocalTime;
+import java.sql.*;
 
 import java.util.ResourceBundle;
 
 import static repository.NormalUserRepository.*;
 
 public class normalUserController implements Initializable {
+    public Button dergoAnkese;
     @FXML
     private Button gjejLinjat;
     @FXML
     private TableView<Oraret> tblOraret;
     @FXML
-    private TableColumn<Oraret, String> kompaniaColumn;
+    private TableColumn<Oraret, String> kompaniaColumn_ID;
     @FXML
-    private TableColumn<Oraret, LocalTime> nisjaColumn;
+    private TableColumn<Oraret, Integer> nisjaColumn_ID;
     @FXML
-    private TableColumn<Oraret, LocalTime> arritjaColumn;
+    private TableColumn<Oraret, Integer> arritjaColumn_ID;
     @FXML
-    private TableColumn<Oraret, Integer> biletaColumn;
+    private TableColumn<Oraret, Double> biletaColumn_ID;
     @FXML
     private Pagination oraretPagination;
     @FXML
@@ -51,25 +56,38 @@ public class normalUserController implements Initializable {
     @FXML
     private Button signupID;
 
-    public void setData(ObservableList<Oraret> oraretList) {
-        tblOraret.setItems(oraretList);
+    public normalUserController() {
     }
+
+//    public void setData(ObservableList<Oraret> oraretList) {
+//        tblOraret.setItems(oraretList);
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-         try {
+        kompaniaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
+        nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty().asObject());
+        arritjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty().asObject());
+        biletaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().cmimiBiletesProperty().asObject());
+
+        // Fetch data from the database and populate the TableView
+        ObservableList<Oraret> oraretList = fetchDataFromDatabase();
+        tblOraret.setItems(oraretList);
+
+
+        try {
             ObservableList<String> vendNisja = vendNisja();
-            comboNisja.setItems(vendNisja);
+//            comboNisja.setItems(vendNisja);
 //            comboNisja.setOnAction(this::onActionShfaqLinjat);
             ObservableList<String> destinacioni = destinacioni();
-            comboDestinacioni.setItems(destinacioni);
+//            comboDestinacioni.setItems(destinacioni);
 //            comboDestinacioni.setOnAction(this::onActionShfaqLinjat);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
+
     @FXML
     private void onActionShfaqLinjat(ActionEvent e) throws SQLException {
 
@@ -115,6 +133,25 @@ public class normalUserController implements Initializable {
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) signupID.getScene().getWindow();
             stage.setTitle("Sign up");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onClickAnkesa(ActionEvent event) {
+
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/ankesat.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) dergoAnkese.getScene().getWindow();
+            stage.setTitle("Ankesa");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
