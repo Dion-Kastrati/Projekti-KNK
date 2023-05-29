@@ -1,5 +1,6 @@
 package services;
 
+import models.Session;
 import models.User;
 import models.dto.CreateUserDto;
 import repository.UserRepository;
@@ -7,6 +8,7 @@ import repository.UserRepository;
 import java.sql.SQLException;
 
 public class UserAuthService {
+    private static User currentUser;
 
     public static User login(String username, String password) throws SQLException {
         User user = UserRepository.getByUsername(username);
@@ -14,6 +16,8 @@ public class UserAuthService {
             return null;
         }
         if (PasswordHasher.compareSaltedHash(password, user.getSalt(), user.getSaltedPassword())) {
+            // Set the current user in the session
+            setCurrentUser(user);
             return user;
         } else {
             return null;
@@ -32,6 +36,14 @@ public class UserAuthService {
         CreateUserDto userDto = new CreateUserDto(emri, mbiemri, email, username, saltedPasswordHash, salt);
         UserRepository userRepository = new UserRepository();
         return userRepository.insert(userDto);
+    }
+
+    public static void setCurrentUser(User currentUser) {
+        UserAuthService.currentUser = currentUser;
+    }
+
+    public User getCurrentUser(){
+        return currentUser;
     }
 
 

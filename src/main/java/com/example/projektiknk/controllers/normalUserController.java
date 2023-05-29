@@ -128,7 +128,7 @@ public class normalUserController implements Initializable {
 
         try {
             // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/ankesat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/dergoAnkesa.fxml"));
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);

@@ -1,10 +1,10 @@
 package models.dto;
 
-public class storeAnkesa {
+public class StoreAnkesaDto {
     private String email;
     private String ankesa;
 
-    public storeAnkesa(String email, String ankesa) {
+    public StoreAnkesaDto(String email, String ankesa) {
         this.email = email;
         this.ankesa = ankesa;
     }

@@ -25,9 +25,7 @@ public class homeController implements Initializable {
     @FXML
     private Button profilID;
     @FXML
-    private Button shikoOraret;
-    @FXML
-    private Button dergoAnkese;
+    private Button menaxhoAnkesa;
     @FXML
     private Text textHome_ID;
 
@@ -110,6 +108,21 @@ public class homeController implements Initializable {
     }
 
     public void onClickAnkesa(ActionEvent event) {
+        try {
+            // Load the signup.fxml file
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/menaxhoAnkesat.fxml"));
+
+            // Create a new scene with the loaded FXML file
+            Scene scene = new Scene(root);
+
+            // Get the current stage (window) and set the new scene
+            Stage stage = (Stage) menaxhoAnkesa.getScene().getWindow();
+            stage.setTitle("Ankesat");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     public void translate(){
@@ -118,8 +131,7 @@ public class homeController implements Initializable {
         homeID.setText(translate.getString("homeID"));
         oraretID.setText(translate.getString("oraretID"));
         profilID.setText(translate.getString("profilID"));
-        shikoOraret.setText(translate.getString("shikoOraret"));
-        dergoAnkese.setText(translate.getString("dergoAnkese"));
+        menaxhoAnkesa.setText(translate.getString("menaxhoAnkesa"));
         textHome_ID.setText(translate.getString("textHome_ID"));
 
     }

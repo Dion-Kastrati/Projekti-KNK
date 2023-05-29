@@ -1,10 +1,10 @@
 package repository.interfaces;
 
 import models.Ankesa;
-import models.dto.storeAnkesa;
+import models.dto.StoreAnkesaDto;
 
 import java.sql.SQLException;
 
 public interface AnkesaRepositoryInterface {
-    public Ankesa insert (storeAnkesa ankesa) throws SQLException;
+    public Ankesa insert (StoreAnkesaDto ankesa) throws SQLException;
 }

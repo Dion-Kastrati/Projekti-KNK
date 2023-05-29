@@ -1,7 +1,7 @@
 package repository;
 
 import models.Ankesa;
-import models.dto.storeAnkesa;
+import models.dto.StoreAnkesaDto;
 import repository.interfaces.AnkesaRepositoryInterface;
 import services.ConnectionUtil;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class AnkesaRepository implements AnkesaRepositoryInterface{
  @Override
-    public  Ankesa insert(storeAnkesa ankesa) throws SQLException {
+    public  Ankesa insert(StoreAnkesaDto ankesa) throws SQLException {
         String sql = "INSERT INTO ankesat (email, ankesa) VALUES (?, ?)";
         Connection connection = ConnectionUtil.getConnection();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
