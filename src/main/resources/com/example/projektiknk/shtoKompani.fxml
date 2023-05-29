@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.shtoKompaniController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="homeID" mnemonicParsing="false" onAction="#sendToHome" style="-fx-background-color: #ffd100;" text="Home" />
+            <Button fx:id="oraretID" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToOraret" style="-fx-background-color: #ffd100;" text="Menaxhimet" />
+            <Button fx:id="profilID" layoutX="66.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToProfili" style="-fx-background-color: #ffd100;" text="Profili" />
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fx:id="menaxhimiKompaniveID" layoutX="314.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menaxhimi i Kompanive">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tblKompanite" layoutX="106.0" layoutY="99.0" prefHeight="278.0" prefWidth="231.0">
+              <columns>
+                <TableColumn fx:id="columnID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="columnEmriKompanise" prefWidth="153.60003662109375" text="Emri i kompanise" />
+              </columns>
+            </TableView>
+            <TextField fx:id="kompaniaRe_ID" layoutX="400.0" layoutY="177.0" promptText="Emri i kompanise se re" />
+            <Button fx:id="shtoButton_ID" layoutX="574.0" layoutY="177.0" mnemonicParsing="false" onAction="#shtoButton" text="Shto" />
+            <TextField fx:id="kompania_ID" layoutX="401.0" layoutY="291.0" promptText="Emri i kompanise" />
+            <Button fx:id="kerkoButton_ID" layoutX="574.0" layoutY="291.0" mnemonicParsing="false" onAction="#kerkoButton" text="Kerko" />
+            <Button fx:id="shtoLinjeID" layoutX="637.0" layoutY="19.0" mnemonicParsing="false" onAction="#shtoLinjeButton" text="Shto Linje" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

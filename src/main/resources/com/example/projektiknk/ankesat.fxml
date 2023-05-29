@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.ankesaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.ankesaController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,18 +20,18 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextArea fx:id="pershkrimiTxt_ID" layoutX="74.0" layoutY="118.0" prefHeight="132.0" prefWidth="200.0" promptText="Shkruaj ankesen..." />
-            <Button fx:id="dergoBtn" layoutX="222.0" layoutY="264.0" mnemonicParsing="false" onAction="#onActionDergo" style="-fx-background-color: #ffd100;" text="Dergo">
+            <TextArea fx:id="pershkrimiTxt_ID" layoutX="74.0" layoutY="118.0" prefHeight="196.0" prefWidth="297.0" promptText="Shkruaj ankesen..." />
+            <Button fx:id="dergoBtn" layoutX="302.0" layoutY="326.0" mnemonicParsing="false" onAction="#onActionDergo" prefHeight="34.0" prefWidth="71.0" style="-fx-background-color: #ffd100;" text="Dergo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Text layoutX="358.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontaktet dhe oraret:" wrappingWidth="140.57373046875">
+            <Text layoutX="530.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontaktet dhe oraret:" wrappingWidth="140.57373046875">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="328.0" layoutY="91.0" prefHeight="18.0" prefWidth="30.0">
+            <AnchorPane layoutX="495.0" layoutY="141.0" prefHeight="18.0" prefWidth="30.0">
                <children>
                   <ImageView fitHeight="28.0" fitWidth="35.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -40,57 +40,45 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="328.0" layoutY="138.0" prefHeight="34.0" prefWidth="39.0">
-               <children>
-                  <ImageView fitHeight="28.0" fitWidth="27.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/clock.png" />
-                     </image></ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="328.0" layoutY="187.0" prefHeight="34.0" prefWidth="39.0">
-               <children>
-      <!--            <AnchorPane layoutX="328.0" layoutY="235.0" prefHeight="34.0" prefWidth="39.0" />-->
-                  <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="3.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../images/phone.png" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
-            <Text layoutX="359.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bregu i diellit, Prishtine">
+            <AnchorPane layoutX="328.0" layoutY="138.0" prefHeight="34.0" prefWidth="39.0" />
+            <AnchorPane layoutX="328.0" layoutY="187.0" prefHeight="34.0" prefWidth="39.0" />
+            <Text layoutX="537.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bregu i diellit, Prishtine">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="375.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E Hene - E Premte Ora 8:00 - 16:00" wrappingWidth="127.8385009765625">
+            <Text layoutX="537.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E Hene - E Premte Ora 8:00 - 16:00" wrappingWidth="127.8385009765625">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="375.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+383 0800 090 00" wrappingWidth="119.619140625">
+            <Text layoutX="540.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+383 0800 090 00" wrappingWidth="121.21917724609375">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="email_ID" layoutX="74.0" layoutY="78.0" prefHeight="26.0" prefWidth="200.0" promptText="Email" />
+            <TextField fx:id="email_ID" layoutX="74.0" layoutY="78.0" prefHeight="26.0" prefWidth="294.0" promptText="Email" />
+<!--            <AnchorPane layoutX="328.0" layoutY="235.0" prefHeight="34.0" prefWidth="39.0" />-->
+            <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="499.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/phone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="27.0" layoutX="497.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/clock.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>
    <top>
       <ToolBar prefHeight="40.0" prefWidth="341.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
          <items>
-            <Button fx:id="loginID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: #ffd100;" text="Login" />
+            <Button fx:id="loginID" mnemonicParsing="false" onAction="#sendToLogin" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #ffd100;" text="Login" />
             <Button fx:id="signupID" layoutX="10.0" layoutY="12.0" mnemonicParsing="false" onAction="#sendToSignup" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #ffd100;" text="Signup" />
-            <Button fx:id="dergoAnkese" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="7.0" prefWidth="93.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="guest_ID" mnemonicParsing="false" onAction="#onActionGuest" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Oraret" textAlignment="CENTER">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Button>
+            <Button fx:id="dergoAnkese" mnemonicParsing="false" onAction="#onClickAnkesa" prefHeight="7.0" prefWidth="93.0" style="-fx-background-color: #ffd100;" text="Dergo ankese" />
+            <Button fx:id="guest_ID" mnemonicParsing="false" onAction="#onActionGuest" prefHeight="26.0" prefWidth="96.0" style="-fx-background-color: transparent;" text="Managment" textAlignment="CENTER" />
          </items>
       </ToolBar>
    </top>

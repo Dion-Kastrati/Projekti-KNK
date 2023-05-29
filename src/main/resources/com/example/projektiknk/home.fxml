@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.homeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.homeController">
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
@@ -26,22 +26,22 @@
 <!--               </image>-->
 <!--            </ImageView>-->
 
-            <Text fx:id="textHome_ID" layoutX="46.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miresevini ne aplikacionin per menaxhimin e orareve te linjave te autobuseve">
+            <Text fx:id="textHome_ID" layoutX="146.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Miresevini ne aplikacionin per menaxhimin e orareve te linjave te autobuseve">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Button fx:id="shikoOraret" layoutX="139.0" layoutY="211.0" mnemonicParsing="false" onAction="#shikoOraretPrejHome" onMouseClicked="#shikoOraretPrejHome" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: #ffd100;" text="Shiko Oraret">
+            <Button fx:id="shikoOraret" layoutX="199.0" layoutY="263.0" mnemonicParsing="false" onAction="#shikoOraretPrejHome" onMouseClicked="#shikoOraretPrejHome" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: #ffd100;" text="Shiko Oraret">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="dergoAnkese" layoutX="346.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
+            <Button fx:id="dergoAnkese" layoutX="497.0" layoutY="263.0" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Text layoutX="268.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- eBus -">
+            <Text layoutX="368.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- eBus -">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

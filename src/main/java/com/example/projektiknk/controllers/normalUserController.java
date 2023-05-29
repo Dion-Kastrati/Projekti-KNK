@@ -20,7 +20,13 @@ import java.util.ResourceBundle;
 import static repository.NormalUserRepository.*;
 
 public class normalUserController implements Initializable {
-    public Button dergoAnkese;
+    @FXML
+    private Button dergoAnkese;
+
+    @FXML
+    private ComboBox<String> comboDestinacioni_ID;
+    @FXML
+    private ComboBox<String> comboNisja_ID;
     @FXML
     private Button gjejLinjat;
     @FXML
@@ -38,18 +44,11 @@ public class normalUserController implements Initializable {
     @FXML
     private Label ngaLable;
     @FXML
-    private ComboBox<String> comboNisja;
-    @FXML
     private Label deriLable;
-    @FXML
-    private ComboBox<String> comboDestinacioni;
     @FXML
     private Button loginID;
     @FXML
     private Button signupID;
-
-    public normalUserController() {
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,10 +63,10 @@ public class normalUserController implements Initializable {
 
         try {
 
-            ObservableList<String> prejLista = vendNisja();
-            ObservableList<String> deriLista = destinacioni();
-//            comboNisja.setItems(prejLista);
-//            comboDestinacioni.setItems(deriLista);
+            ObservableList<String> prejLista = from();
+            ObservableList<String> deriLista = to();
+            comboNisja_ID.setItems(prejLista);
+            comboDestinacioni_ID.setItems(deriLista);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -76,15 +75,21 @@ public class normalUserController implements Initializable {
     @FXML
     private void onActionShfaqLinjat(ActionEvent e) throws SQLException {
             // Pass the comboNisja value to a variable
-            String selectedValue = comboNisja.getValue().toString();
+            String selectedValue = comboNisja_ID.getValue().toString();
             System.out.println("Selected Value: " + selectedValue);
 
             // Pass the comboDestinacioni value to a variable
-            String selectedValueDest = comboDestinacioni.getValue().toString();
+            String selectedValueDest = comboDestinacioni_ID.getValue().toString();
             System.out.println("Selected Value Dest: " + selectedValueDest);
 
-            // Call the method getByPrejDeri and pass the selected values as parameters
-            getOrarinPrejDeri(selectedValue, selectedValueDest);
+            kompaniaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
+            nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty());
+            arritjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty());
+            biletaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().cmimiBiletesProperty().asObject());
+
+            ObservableList<Oraret> oraretFilter = getOrarinPrejDeri(selectedValue, selectedValueDest);
+            tblOraret.setItems(oraretFilter);
+
         }
 
 

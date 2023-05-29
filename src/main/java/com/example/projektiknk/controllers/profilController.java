@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -19,6 +20,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class profilController implements Initializable {
+    @FXML
+    private ImageView imageID;
     @FXML
     private Button homeID;
     @FXML

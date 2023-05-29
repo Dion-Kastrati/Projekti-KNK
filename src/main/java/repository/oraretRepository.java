@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class oraretRepository {
-    public Oraret insert(CreateOraretDto Oraret) throws SQLException{
+    public static Oraret insert(CreateOraretDto Oraret) throws SQLException{
         String sql = "INSERT INTO oraret(prej,deri,koha_nisjes,koha_arritjes,cmimi_biletes) values(?,?,?,?,?)";
         Connection conn = ConnectionUtil.getConnection();
         PreparedStatement preparedStatement = ConnectionUtil.getConnection().prepareStatement(sql);
-        preparedStatement.setString(1,Oraret.getPrej());
-        preparedStatement.setString(2,Oraret.getDeri());
+        preparedStatement.setString(1,Oraret.getVendiNisjes());
+        preparedStatement.setString(2,Oraret.getDestinacioni());
         preparedStatement.setString(3,Oraret.getKohaNisjes());
         preparedStatement.setString(4,Oraret.getKohaArritjes());
-        preparedStatement.setDouble(5,Oraret.getCmimiBiletes());
+        preparedStatement.setString(5,Oraret.getCmimiBiletes());
         preparedStatement.executeUpdate();
 
         // TODO: Me ndreq qe me kthy diqka te tipit Oraret;

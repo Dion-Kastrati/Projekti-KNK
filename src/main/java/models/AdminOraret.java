@@ -1,19 +1,18 @@
-package models.dto;
+package models;
 
-import java.time.LocalTime;
+public class AdminOraret {
+   private int orariID;
+   private String companyName;
+   private String vendNisja;
+   private String destinacioni;
+   private String kohaNisjes;
+   private String kohaArritjes;
+   private String cmimiBiletes;
 
-public class CreateOraretDto {
-    private int orariID;
-    private String companyName;
-    private String vendiNisjes;
-    private String destinacioni;
-    private String kohaNisjes;
-    private String kohaArritjes;
-    private String cmimiBiletes;
-
-    public CreateOraretDto( String companyName, String vendiNisjes, String destinacioni, String kohaNisjes, String kohaArritjes, String cmimiBiletes) {
+    public AdminOraret(int orariID, String companyName, String vendNisja, String destinacioni, String kohaNisjes, String kohaArritjes, String cmimiBiletes) {
+        this.orariID = orariID;
         this.companyName = companyName;
-        this.vendiNisjes = vendiNisjes;
+        this.vendNisja = vendNisja;
         this.destinacioni = destinacioni;
         this.kohaNisjes = kohaNisjes;
         this.kohaArritjes = kohaArritjes;
@@ -36,12 +35,12 @@ public class CreateOraretDto {
         this.companyName = companyName;
     }
 
-    public String getVendiNisjes() {
-        return vendiNisjes;
+    public String getVendNisja() {
+        return vendNisja;
     }
 
-    public void setVendiNisjes(String vendiNisjes) {
-        this.vendiNisjes = vendiNisjes;
+    public void setVendNisja(String vendNisja) {
+        this.vendNisja = vendNisja;
     }
 
     public String getDestinacioni() {
@@ -64,7 +63,7 @@ public class CreateOraretDto {
         return kohaArritjes;
     }
 
-    public void setKohaArritjes(String kohaArritjes) {
+    public void setKohaArritjes(String deri) {
         this.kohaArritjes = kohaArritjes;
     }
 

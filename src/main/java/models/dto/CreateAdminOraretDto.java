@@ -1,8 +1,6 @@
 package models.dto;
 
-import java.time.LocalTime;
-
-public class CreateOraretDto {
+public class CreateAdminOraretDto {
     private int orariID;
     private String companyName;
     private String vendiNisjes;
@@ -11,7 +9,7 @@ public class CreateOraretDto {
     private String kohaArritjes;
     private String cmimiBiletes;
 
-    public CreateOraretDto( String companyName, String vendiNisjes, String destinacioni, String kohaNisjes, String kohaArritjes, String cmimiBiletes) {
+    public CreateAdminOraretDto(String companyName, String vendiNisjes, String destinacioni, String kohaNisjes, String kohaArritjes, String cmimiBiletes) {
         this.companyName = companyName;
         this.vendiNisjes = vendiNisjes;
         this.destinacioni = destinacioni;

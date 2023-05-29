@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.oraretController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.oraretController">
     <top>
         <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffd100;" BorderPane.alignment="CENTER">
             <items>
@@ -21,72 +25,31 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="277.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oraret">
+            <Text fx:id="menaxhimiOrareveID" layoutX="327.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menaxhimi i orareve">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="54.0" layoutY="42.0" prefHeight="123.0" prefWidth="222.0" style="-fx-background-color: #ffd100;">
-               <children>
-                  <Text fx:id="busName" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berisha Impex">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="linePrice" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Çmimi: 5 Eur">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="orariBtn" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Shiko Oraret" textFill="#ffd100" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="323.0" layoutY="42.0" prefHeight="123.0" prefWidth="222.0" style="-fx-background-color: #ffd100;">
-               <children>
-                  <Text fx:id="busName1" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berisha Impex">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="linePrice1" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Çmimi: 5 Eur">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="orariBtn1" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Shiko Oraret" textFill="#ffd100" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="55.0" layoutY="180.0" prefHeight="123.0" prefWidth="221.0" style="-fx-background-color: #ffd100;">
-               <children>
-                  <Text fx:id="busName11" layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berisha Impex">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="linePrice11" layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Çmimi: 5 Eur">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="orariBtn11" layoutX="14.0" layoutY="79.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Shiko Oraret" textFill="#ffd100" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="323.0" layoutY="180.0" prefHeight="123.0" prefWidth="222.0" style="-fx-background-color: #ffd100;">
-               <children>
-                  <Text fx:id="busName111" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berisha Impex">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="linePrice111" layoutX="14.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Çmimi: 5 Eur">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="orariBtn111" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Shiko Oraret" textFill="#ffd100" />
-               </children>
-            </AnchorPane>
-            <Pagination layoutX="200.0" layoutY="303.0" prefHeight="29.0" prefWidth="200.0" />
+            <Pagination layoutX="300.0" layoutY="402.0" prefHeight="29.0" prefWidth="200.0" />
+            <TableView fx:id="tblOraretAdmin_ID" layoutX="66.0" layoutY="86.0" prefHeight="200.0" prefWidth="667.0">
+              <columns>
+                <TableColumn fx:id="columnID" prefWidth="42.399993896484375" text="ID" />
+                <TableColumn fx:id="columnEmriID" prefWidth="128.79998779296875" text="Emri i kompanise" />
+                  <TableColumn fx:id="columnVendNisjaID" prefWidth="147.20001220703125" text="Vendi i nisjes" />
+                  <TableColumn fx:id="columnDestinacioniID" prefWidth="122.39996337890625" text="Destinacioni" />
+                  <TableColumn fx:id="columnNisjaID" prefWidth="65.59991455078125" text="Nisja" />
+                  <TableColumn fx:id="columnArritjaID" prefWidth="68.7999267578125" text="Arritja" />
+                  <TableColumn fx:id="columnCmimiBiletesID" prefWidth="94.4000244140625" text="Cmimi i biletes" />
+              </columns>
+            </TableView>
+            <Button fx:id="shtoKompaniButton_ID" layoutX="641.0" layoutY="18.0" mnemonicParsing="false" onAction="#shtoKompaniButton" text="Shto Kompani" />
+            <ComboBox fx:id="emriKompanise_ID" layoutX="66.0" layoutY="295.0" prefHeight="26.0" prefWidth="134.0" promptText="Emri i kompanise" />
+            <TextField fx:id="vendNisja_ID" layoutX="211.0" layoutY="296.0" prefHeight="26.0" prefWidth="108.0" promptText="Vendi i nisjes" />
+            <TextField fx:id="destinacioni_ID" layoutX="327.0" layoutY="296.0" prefHeight="26.0" prefWidth="108.0" promptText="Destinacioni" />
+            <TextField fx:id="oraNisjes_ID" layoutX="446.0" layoutY="296.0" prefHeight="26.0" prefWidth="108.0" promptText="Ora e nisjes" />
+            <TextField fx:id="oraArritjes_ID" layoutX="567.0" layoutY="296.0" prefHeight="26.0" prefWidth="108.0" promptText="Ora e arritjes" />
+            <TextField fx:id="cmimi_ID" layoutX="684.0" layoutY="296.0" prefHeight="26.0" prefWidth="49.0" promptText="€" />
+            <Button fx:id="shtoLinjenButton_ID" layoutX="642.0" layoutY="334.0" mnemonicParsing="false" onAction="#shtoLinjenButton" prefHeight="26.0" prefWidth="91.0" text="Shto Orarin" />
          </children>
       </AnchorPane>
    </center>

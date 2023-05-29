@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Ankesa;
@@ -25,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class ankesaController  implements Initializable {
 
+    @FXML
+    private Text ankesaText_ID;
     @FXML
     private  Button loginID;
     @FXML

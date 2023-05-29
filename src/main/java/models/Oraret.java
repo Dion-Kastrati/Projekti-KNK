@@ -77,4 +77,5 @@ public class Oraret {
     public DoubleProperty cmimiBiletesProperty() {
         return cmimiBiletes;
     }
+
 }

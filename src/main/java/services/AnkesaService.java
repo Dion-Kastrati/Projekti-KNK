@@ -1,7 +1,7 @@
 package services;
 
 import models.Ankesa;
-import models.dto.storeAnkesa;
+import models.dto.StoreAnkesaDto;
 import repository.AnkesaRepository;
 
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class AnkesaService {
     public static Ankesa register(String email, String ankesa){
 
-        storeAnkesa storeankesa=new storeAnkesa(email, ankesa);
+        StoreAnkesaDto storeankesa=new StoreAnkesaDto(email, ankesa);
         AnkesaRepository ankesaRepository=new AnkesaRepository();
         try {
             return ankesaRepository.insert(storeankesa);
