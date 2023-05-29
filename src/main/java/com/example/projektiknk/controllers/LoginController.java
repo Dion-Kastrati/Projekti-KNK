@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.Session;
 import models.User;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
@@ -46,7 +47,10 @@ public class LoginController implements Initializable {
     private UserServiceInterface userService;
     private static String selectedLanguage;
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        translate();
+    }
     public LoginController() {
         userService = new UserService(); // Replace UserService with the actual implementation class name
     }
@@ -66,6 +70,7 @@ public class LoginController implements Initializable {
             User loginUser = userService.login(username, password);
 
             if (loginUser != null) {
+                Session.getInstance().setCurrentUser(loginUser); // Set the current username in the Session
                 // Load the login.fxml file
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
 
@@ -151,10 +156,7 @@ public class LoginController implements Initializable {
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        translate();
-    }
+
 
     public void translate() {
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());

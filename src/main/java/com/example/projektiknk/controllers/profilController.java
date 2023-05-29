@@ -8,14 +8,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 import javafx.scene.image.ImageView;
+
+import javafx.scene.control.TextField;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import models.User;
+import repository.UserRepository;
 import services.Perkthimet;
+import services.UserAuthService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -37,9 +45,9 @@ public class profilController implements Initializable {
     @FXML
     private Button gjuha_ID;
     @FXML
-    private Button perditesoBtn_ID;
-    @FXML
     private Label emri_label;
+    @FXML
+    private Label emri_labelID;
     @FXML
     private Label mbiemri_label;
     @FXML
@@ -48,6 +56,7 @@ public class profilController implements Initializable {
     private Label dhenat_ID;
     @FXML
     private Label email_label;
+    private UserAuthService authService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -159,6 +168,26 @@ public class profilController implements Initializable {
         }
     }
 
+    public void initialize() throws SQLException {
+        authService= new UserAuthService();
+        translate();
+        loggedin();
+    }
+    public void loggedin() throws SQLException {
+        User currentUser = authService.getCurrentUser();
+        if (currentUser != null) {
+            // Retrieve user data from the database based on the logged-in user
+            // For example, assuming you have a method called getUserData(username) in your UserRepository:
+            User userData = UserRepository.getByUsername(currentUser.getUsername());
+
+            // Populate the labels with the retrieved user data
+            if (userData != null) {
+                emri_labelID.setText(userData.getEmri());
+                mbiemri_label.setText(userData.getMbiemri());
+                email_label.setText(userData.getEmail());
+            }
+        }
+    }
     public void translate(){
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
 
@@ -174,7 +203,5 @@ public class profilController implements Initializable {
         gjuha_ID.setText(translate.getString("gjuha_ID"));
         lokacioni_label.setText(translate.getString("lokacioni_label"));
         dhenat_ID.setText(translate.getString("dhenat_ID"));
-        perditesoBtn_ID.setText(translate.getString("perditesoBtn_ID"));
-
     }
 }

@@ -34,8 +34,6 @@ public class gjuhaController implements Initializable {
     @FXML
     private Button logout_ID;
     @FXML
-    private Button perditesoBtn_ID;
-    @FXML
     private Button shqip_ID;
     @FXML
     private Button english_ID;
@@ -180,7 +178,6 @@ public class gjuhaController implements Initializable {
         ProfilID.setText(translate.getString("ProfilID"));
         gjuha_ID.setText(translate.getString("gjuha_ID"));
         Gjuha_ID.setText(translate.getString("Gjuha_ID"));
-        perditesoBtn_ID.setText(translate.getString("perditesoBtn_ID"));
 
     }
 }

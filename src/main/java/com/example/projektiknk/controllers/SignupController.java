@@ -57,7 +57,8 @@ public class SignupController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        selectedLanguage = "sq";
+        selectedLanguage = "en";
+        Locale.setDefault(new Locale(selectedLanguage));
         loadResourceBundle(selectedLanguage);
         translate();
     }
