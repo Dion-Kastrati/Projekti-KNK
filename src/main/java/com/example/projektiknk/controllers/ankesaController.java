@@ -1,149 +1,119 @@
 package com.example.projektiknk.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-<<<<<<< Updated upstream
-=======
 import javafx.fxml.Initializable;
->>>>>>> Stashed changes
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-<<<<<<< Updated upstream
+import javafx.util.Duration;
+import models.Ankesa;
+import services.AnkesaService;
 
 import java.io.IOException;
-=======
->>>>>>> Stashed changes
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ankesaController  implements Initializable {
-    @FXML
-    private  Button profilID;
+//    @FXML
+//    private  Button profilID;
     @FXML
     private  Button oraretID;
     @FXML
     private  Button homeID;
     @FXML
-    private TextArea pershkrimiTxt;
+    private TextArea pershkrimiTxt_ID;
     @FXML
-    private ComboBox zgjedhja;
+    private TextField email_ID;
     @FXML
     private Button dergoBtn;
-<<<<<<< Updated upstream
 
-    public void sendToHome(MouseEvent mouseEvent) {
-        try {
-            // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
-
-            // Create a new scene with the loaded FXML file
-            Scene scene = new Scene(root);
-
-            // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) homeID.getScene().getWindow();
-            stage.setTitle("Home");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void sendToOraret(MouseEvent mouseEvent) {
-        try {
-            // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/oraret.fxml"));
-=======
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         translate();
     }
 
+
     public void sendToHome(ActionEvent event) {
         try {
             // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/home.fxml"));
->>>>>>> Stashed changes
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
 
-            // Get the current stage (window) and set the new scene
-<<<<<<< Updated upstream
-            Stage stage = (Stage) oraretID.getScene().getWindow();
-            stage.setTitle("Oraret");
-=======
             Stage stage = (Stage) homeID.getScene().getWindow();
             stage.setTitle("Home");
->>>>>>> Stashed changes
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-<<<<<<< Updated upstream
-    public void sendToGjuha(MouseEvent mouseEvent) {
-  /*      try {
-            // Load the ChangePass.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/gjuha.fxml"));
-=======
     public void sendToOraret(ActionEvent event) {
         try {
             // Load the signup.fxml file
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/oraret.fxml"));
->>>>>>> Stashed changes
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
 
             // Get the current stage (window) and set the new scene
-<<<<<<< Updated upstream
-            Stage stage = (Stage) gjuha_ID.getScene().getWindow();
-            stage.setTitle("User Profile");
-=======
             Stage stage = (Stage) oraretID.getScene().getWindow();
             stage.setTitle("Oraret");
->>>>>>> Stashed changes
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-<<<<<<< Updated upstream
-*/
     }
 
-    public void sendToProfili(MouseEvent mouseEvent) {
-=======
-    }
 
-    public void sendToProfili(ActionEvent event) {
->>>>>>> Stashed changes
-        try {
-            // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/profil.fxml"));
 
-            // Create a new scene with the loaded FXML file
-            Scene scene = new Scene(root);
 
-            // Get the current stage (window) and set the new scene
-            Stage stage = (Stage) profilID.getScene().getWindow();
-            stage.setTitle("User Profile");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+
+//    public void sendToProfili(ActionEvent event) {
+//        try {
+//            // Load the signup.fxml file
+//            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/profil.fxml"));
+//
+//            // Create a new scene with the loaded FXML file
+//            Scene scene = new Scene(root);
+//
+//            // Get the current stage (window) and set the new scene
+//            Stage stage = (Stage) profilID.getScene().getWindow();
+//            stage.setTitle("User Profile");
+//            stage.setScene(scene);
+//            stage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    public void onActionDergo(ActionEvent event){
+        String email=email_ID.getText();
+        String pershkrimiTxt=pershkrimiTxt_ID.getText();
+        // Input validation checks
+        if (email.isEmpty() || pershkrimiTxt.isEmpty() ) {
+            showErrorMessage("Please fill in all the fields.");
+            return;
+        }
+        // Email validation
+        if (!isValidEmail(email)) {
+            showErrorMessage("Invalid email address.");
+            return;
+        }
+        Ankesa ankesa= AnkesaService.register(email,pershkrimiTxt);
+        if(ankesa != null){
+            showInformationMessage("Ankesa u dergua me sukses!");
         }
     }
 
@@ -152,7 +122,30 @@ public class ankesaController  implements Initializable {
 
         homeID.setText(translate.getString("homeID"));
         oraretID.setText(translate.getString("oraretID"));
-        profilID.setText(translate.getString("profilID"));
 
+    }
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    private void showInformationMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+
+        // Automatically close the dialog after 5 seconds
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> alert.close()));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        return email.matches(emailRegex);
     }
 }
