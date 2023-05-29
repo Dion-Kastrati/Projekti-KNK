@@ -7,18 +7,18 @@ public class Oraret {
     private StringProperty companyName;
     private StringProperty prej;
     private StringProperty deri;
-    private IntegerProperty kohaNisjes;
-    private IntegerProperty kohaArritjes;
+    private StringProperty kohaNisjes;
+    private StringProperty kohaArritjes;
     private DoubleProperty cmimiBiletes;
 
-    public Oraret(int orariId, String companyName, String prej, String deri, int kohaNisjes,
-                  int kohaArritjes, double cmimiBiletes) {
+    public Oraret(int orariId, String companyName, String prej, String deri, String kohaNisjes,
+                  String kohaArritjes, double cmimiBiletes) {
         this.orariId = new SimpleIntegerProperty(orariId);
         this.companyName = new SimpleStringProperty(companyName);
         this.prej = new SimpleStringProperty(prej);
         this.deri = new SimpleStringProperty(deri);
-        this.kohaNisjes = new SimpleIntegerProperty(kohaNisjes);
-        this.kohaArritjes = new SimpleIntegerProperty(kohaArritjes);
+        this.kohaNisjes = new SimpleStringProperty(kohaNisjes);
+        this.kohaArritjes = new SimpleStringProperty(kohaArritjes);
         this.cmimiBiletes = new SimpleDoubleProperty(cmimiBiletes);
     }
 
@@ -54,19 +54,19 @@ public class Oraret {
         return deri;
     }
 
-    public int getKohaNisjes() {
+    public String getKohaNisjes() {
         return kohaNisjes.get();
     }
 
-    public IntegerProperty kohaNisjesProperty() {
+    public StringProperty kohaNisjesProperty() {
         return kohaNisjes;
     }
 
-    public int getKohaArritjes() {
+    public String getKohaArritjes() {
         return kohaArritjes.get();
     }
 
-    public IntegerProperty kohaArritjesProperty() {
+    public StringProperty kohaArritjesProperty() {
         return kohaArritjes;
     }
 

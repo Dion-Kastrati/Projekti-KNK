@@ -110,7 +110,7 @@ public class homeController implements Initializable {
     }
 
     public void onClickAnkesa(ActionEvent event) {
-        
+
     }
     public void translate(){
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());

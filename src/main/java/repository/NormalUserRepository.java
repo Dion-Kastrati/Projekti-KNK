@@ -13,18 +13,26 @@ import java.util.List;
 
 public class NormalUserRepository {
 
-    public static ObservableList<String> vendNisja() throws SQLException {
+    public static ObservableList<String> vendNisja() throws SQLException  {
         ObservableList<String> prejList = FXCollections.observableArrayList();
-        try{
-            String sql = "SELECT DISTINCT prej FROM oraret";
-            Connection conn = ConnectionUtil.getConnection();
-            PreparedStatement preparedStatement = ConnectionUtil.getConnection().prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+
+        try {
+            // Create the SQL statement
+            String sql = "SELECT prej FROM oraret";
+            Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery(sql);
+            // Process the result set and add values to the prejList
+            while (resultSet.next()) {
                 String prej = resultSet.getString("prej");
                 prejList.add(prej);
             }
-        }catch(SQLException e){
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return prejList;
@@ -32,18 +40,29 @@ public class NormalUserRepository {
 
     public static ObservableList<String> destinacioni() throws SQLException {
         ObservableList<String> deriList = FXCollections.observableArrayList();
-        try{
-            String sql = "SELECT DISTINCT deri FROM oraret";
-            Connection conn = ConnectionUtil.getConnection();
-            PreparedStatement preparedStatement = ConnectionUtil.getConnection().prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+
+        try {
+            // Create the SQL statement
+            String sql = "SELECT deri FROM oraret";
+            Connection connection = ConnectionUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            // Execute the query
+            ResultSet resultSet = preparedStatement.executeQuery(sql);
+            // Process the result set and add values to the prejList
+            while (resultSet.next()) {
                 String prej = resultSet.getString("deri");
                 deriList.add(prej);
             }
-        }catch(SQLException e){
+
+            // Close resources
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
         return deriList;
     }
 
@@ -65,8 +84,8 @@ public class NormalUserRepository {
             System.out.printf("Vend Nisja %s - Destinacioni %s", vendNisja, destinacioni);
             int orariID = resultSet.getInt("orari_id");
             String companyName = resultSet.getString("company_name");
-            int kohaNisjes = resultSet.getInt("koha_nisjes");
-            int kohaArritjes = resultSet.getInt("koha_arritjes");
+            String kohaNisjes = resultSet.getString("koha_nisjes");
+            String kohaArritjes = resultSet.getString("koha_arritjes");
             double cmimiBiletes = resultSet.getDouble("cmimi_biletes");
             System.out.printf("Company Name %s - Koha nisjes %s - Koha Arritjes %s - Cmimi i Biletes %s", companyName, kohaNisjes, kohaArritjes, cmimiBiletes);
             return new Oraret(orariID, companyName ,vendNisja, destinacioni , kohaNisjes, kohaArritjes, cmimiBiletes);
@@ -96,8 +115,8 @@ public class NormalUserRepository {
                 String companyName = resultSet.getString("company_name");
                 String from = resultSet.getString("prej");
                 String to = resultSet.getString("deri");
-                int departureTime = resultSet.getInt("koha_nisjes");
-                int arrivalTime = resultSet.getInt("koha_arritjes");
+                String  departureTime = resultSet.getString("koha_nisjes");
+                String arrivalTime = resultSet.getString("koha_arritjes");
                 double ticketPrice = resultSet.getDouble("cmimi_biletes");
 
                 Oraret oraret = new Oraret(oraretId, companyName, from, to, departureTime, arrivalTime, ticketPrice);

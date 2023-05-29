@@ -1,10 +1,5 @@
 package com.example.projektiknk.controllers;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,11 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import models.Oraret;
-import services.ConnectionUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,9 +28,9 @@ public class normalUserController implements Initializable {
     @FXML
     private TableColumn<Oraret, String> kompaniaColumn_ID;
     @FXML
-    private TableColumn<Oraret, Integer> nisjaColumn_ID;
+    private TableColumn<Oraret, String> nisjaColumn_ID;
     @FXML
-    private TableColumn<Oraret, Integer> arritjaColumn_ID;
+    private TableColumn<Oraret, String> arritjaColumn_ID;
     @FXML
     private TableColumn<Oraret, Double> biletaColumn_ID;
     @FXML
@@ -59,30 +51,23 @@ public class normalUserController implements Initializable {
     public normalUserController() {
     }
 
-//    public void setData(ObservableList<Oraret> oraretList) {
-//        tblOraret.setItems(oraretList);
-//    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         kompaniaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
-        nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty().asObject());
-        arritjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty().asObject());
+        nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty());
+        arritjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty());
         biletaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().cmimiBiletesProperty().asObject());
 
         // Fetch data from the database and populate the TableView
         ObservableList<Oraret> oraretList = fetchDataFromDatabase();
         tblOraret.setItems(oraretList);
 
-
         try {
-            ObservableList<String> vendNisja = vendNisja();
-//            comboNisja.setItems(vendNisja);
-//            comboNisja.setOnAction(this::onActionShfaqLinjat);
-            ObservableList<String> destinacioni = destinacioni();
-//            comboDestinacioni.setItems(destinacioni);
-//            comboDestinacioni.setOnAction(this::onActionShfaqLinjat);
 
+            ObservableList<String> prejLista = vendNisja();
+            ObservableList<String> deriLista = destinacioni();
+//            comboNisja.setItems(prejLista);
+//            comboDestinacioni.setItems(deriLista);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -90,7 +75,6 @@ public class normalUserController implements Initializable {
 
     @FXML
     private void onActionShfaqLinjat(ActionEvent e) throws SQLException {
-
             // Pass the comboNisja value to a variable
             String selectedValue = comboNisja.getValue().toString();
             System.out.println("Selected Value: " + selectedValue);
