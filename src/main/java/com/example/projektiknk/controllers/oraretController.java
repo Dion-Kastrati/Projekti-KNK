@@ -1,44 +1,44 @@
 package com.example.projektiknk.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import models.AdminKompanite;
-import models.AdminOraret;
 import models.Oraret;
-import models.dto.CreateAdminOraretDto;
-import models.dto.CreateKompaniDto;
 import models.dto.CreateOraretDto;
-import models.dto.UpdateOrariDto;
 import repository.oraretRepository;
-import repository.AdminLinjaRepository;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class oraretController {
+import static repository.NormalUserRepository.fetchDataFromDatabase;
+import static repository.oraretRepository.selectCompanies;
+
+public class oraretController implements Initializable {
     @FXML
-    private TableColumn<AdminOraret, Integer> columnID;
+    private TableColumn<Oraret, Integer> columnID;
     @FXML
-    private TableColumn<AdminOraret, String> columnEmriID;
+    private TableColumn<Oraret, String> columnEmriID;
     @FXML
-    private TableColumn<AdminOraret, String> columnVendNisjaID;
+    private TableColumn<Oraret, String> columnVendNisjaID;
     @FXML
-    private TableColumn<AdminOraret, String> columnDestinacioniID;
+    private TableColumn<Oraret, String> columnDestinacioniID;
     @FXML
-    private TableColumn<AdminOraret, String> columnNisjaID;
+    private TableColumn<Oraret, String> columnNisjaID;
     @FXML
-    private TableColumn<AdminOraret, String> columnArritjaID;
+    private TableColumn<Oraret, String> columnArritjaID;
     @FXML
-    private TableColumn<AdminOraret, Double> columnCmimiBiletesID;
+    private TableColumn<Oraret, Double> columnCmimiBiletesID;
     @FXML
-    private ComboBox<AdminOraret> emriKompanise_ID;
+    private ComboBox<String> emriKompanise_ID;
     @FXML
     private TextField vendNisja_ID;
     @FXML
@@ -50,7 +50,7 @@ public class oraretController {
     @FXML
     private TextField cmimi_ID;
     @FXML
-    private TableView<AdminOraret> tblOraretAdmin_ID;
+    private TableView<Oraret> tblOraretAdmin_ID;
     @FXML
     private Text menaxhimiOrareveID;
     @FXML
@@ -63,6 +63,28 @@ public class oraretController {
     private Button oraretID;
     @FXML
     private Button profilID;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        columnID.setCellValueFactory(cellData -> cellData.getValue().orariIdProperty().asObject());
+        columnEmriID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
+        columnVendNisjaID.setCellValueFactory(cellData -> cellData.getValue().prejProperty());
+        columnDestinacioniID.setCellValueFactory(cellData -> cellData.getValue().deriProperty());
+        columnNisjaID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty());
+        columnArritjaID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty());
+        columnCmimiBiletesID.setCellValueFactory(cellData -> cellData.getValue().cmimiBiletesProperty().asObject());
+
+        // Fetch data from the database and populate the TableView
+        ObservableList<Oraret> oraretList = fetchDataFromDatabase();
+        tblOraretAdmin_ID.setItems(oraretList);
+
+        try {
+            ObservableList<String> kompanite = selectCompanies();
+            emriKompanise_ID.setItems(kompanite);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void sendToHome(ActionEvent event) {
         try {
@@ -209,11 +231,11 @@ public class oraretController {
         String kohaArritjes = oraArritjes_ID.getText();
         String cmimiBiletes = cmimi_ID.getText();
 
-        CreateAdminOraretDto student = new CreateAdminOraretDto(companyName,vendiNisjes,destinacionit,kohaNisjes,kohaArritjes,cmimiBiletes);
+        CreateOraretDto orari = new CreateOraretDto(companyName,vendiNisjes,destinacionit,kohaNisjes,kohaArritjes,cmimiBiletes);
 
 
         try {
-            AdminOraret insertedOrari = AdminLinjaRepository.insert(student);
+            Oraret insertedOrari = oraretRepository.insert(orari);
             if (insertedOrari != null) {
                 tblOraretAdmin_ID.getItems().add(insertedOrari);
             }

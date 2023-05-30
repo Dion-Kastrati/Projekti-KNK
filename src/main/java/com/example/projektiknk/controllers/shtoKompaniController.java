@@ -1,5 +1,6 @@
 package com.example.projektiknk.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,32 +12,38 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import models.AdminKompanite;
+import models.AdminCompanyProperty;
 import models.dto.CreateKompaniDto;
-import repository.AdminKompaniRepository;
+import repository.adminCompanyPropertyRepository;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import static repository.adminCompanyPropertyRepository.fetchDataFromDatabase;
 
 public class shtoKompaniController implements Initializable {
     public Button homeID;
     public Button oraretID;
     public Button profilID;
     public Text menaxhimiKompaniveID;
-    public TableView<AdminKompanite> tblKompanite;
-    public TableColumn<AdminKompanite, Integer> columnID;
-    public TableColumn<AdminKompanite, String> columnEmriKompanise;
+    public TableView<AdminCompanyProperty> tblKompanite;
+    public TableColumn<AdminCompanyProperty, Integer> columnID;
+    public TableColumn<AdminCompanyProperty, String> columnEmriKompanise;
     public TextField kompaniaRe_ID;
     public TextField kompania_ID;
     public Button shtoButton_ID;
     public Button kerkoButton_ID;
+    public Button shtoLinjeID;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        columnID.setCellValueFactory(cellData -> cellData.getValue().company_idProperty().asObject());
+        columnEmriKompanise.setCellValueFactory(cellData -> cellData.getValue().company_nameProperty());
 
+        ObservableList<AdminCompanyProperty> kompaniteMeIDs = fetchDataFromDatabase();
+        tblKompanite.setItems(kompaniteMeIDs);
     }
 
     public void shtoKompaniButton(ActionEvent actionEvent) {
@@ -48,7 +55,7 @@ public class shtoKompaniController implements Initializable {
 
 
         try {
-            AdminKompanite insertedKompani = AdminKompaniRepository.insert(newKompani);
+            AdminCompanyProperty insertedKompani = adminCompanyPropertyRepository.insert(newKompani);
             if (insertedKompani != null) {
                 tblKompanite.getItems().add(insertedKompani);
 

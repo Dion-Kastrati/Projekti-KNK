@@ -18,6 +18,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class homeController implements Initializable {
+    public Button dergoAnkese;
+    public Button shikoOraret;
     @FXML
     private Button homeID;
     @FXML

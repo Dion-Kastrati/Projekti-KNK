@@ -76,11 +76,11 @@ public class normalUserController implements Initializable {
     private void onActionShfaqLinjat(ActionEvent e) throws SQLException {
             // Pass the comboNisja value to a variable
             String selectedValue = comboNisja_ID.getValue().toString();
-            System.out.println("Selected Value: " + selectedValue);
+//            System.out.println("Selected Value: " + selectedValue);
 
             // Pass the comboDestinacioni value to a variable
             String selectedValueDest = comboDestinacioni_ID.getValue().toString();
-            System.out.println("Selected Value Dest: " + selectedValueDest);
+//            System.out.println("Selected Value Dest: " + selectedValueDest);
 
             kompaniaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
             nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty());

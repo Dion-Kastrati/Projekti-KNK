@@ -37,11 +37,18 @@
                </font>
             </Button>
 
+<<<<<<< Updated upstream
             <Button fx:id="menaxhoAnkesa" layoutX="503.0" layoutY="263.0" mnemonicParsing="false" onAction="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Menaxho Ankesat" textFill="#ffd100">
+=======
+            <Button fx:id="dergoAnkese" layoutX="497.0" layoutY="263.0" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Dergo ankese" textFill="#ffd100"></Button>
+
+            <Button fx:id="menaxhoAnkesa" layoutX="346.0" layoutY="211.0" mnemonicParsing="false" onAction="#onClickAnkesa" onMouseClicked="#onClickAnkesa" prefHeight="61.0" prefWidth="114.0" style="-fx-background-color: black;" text="Menaxho Ankesat" textFill="#ffd100">
+>>>>>>> Stashed changes
 
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
+
             </Button>
             <Text layoutX="368.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- eBus -">
                <font>
