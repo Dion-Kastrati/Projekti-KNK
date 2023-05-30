@@ -110,7 +110,7 @@ public class homeController implements Initializable {
     public void onClickAnkesa(ActionEvent event) {
         try {
             // Load the signup.fxml file
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/menaxhoAnkesat.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/projektiknk/menaxhoAnkesa.fxml"));
 
             // Create a new scene with the loaded FXML file
             Scene scene = new Scene(root);
@@ -128,11 +128,11 @@ public class homeController implements Initializable {
     public void translate(){
         ResourceBundle translate = ResourceBundle.getBundle("translations.content", Locale.getDefault());
 
-        homeID.setText(translate.getString("homeID"));
-        oraretID.setText(translate.getString("oraretID"));
-        profilID.setText(translate.getString("profilID"));
-        menaxhoAnkesa.setText(translate.getString("menaxhoAnkesa"));
-        textHome_ID.setText(translate.getString("textHome_ID"));
+//        homeID.setText(translate.getString("homeID"));
+//        oraretID.setText(translate.getString("oraretID"));
+//        profilID.setText(translate.getString("profilID"));
+//        menaxhoAnkesa.setText(translate.getString("menaxhoAnkesa"));
+//        textHome_ID.setText(translate.getString("textHome_ID"));
 
     }
 }
