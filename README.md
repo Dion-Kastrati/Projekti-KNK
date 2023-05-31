@@ -1,6 +1,6 @@
 # Projekti-KNK
 
-# Zhvillimi i Sistemit Interaktiv për menaxhimin e orarit te linjave te Autobusëve ne stacionin e autobusëve 
+# Grupi 7 -Zhvillimi i Sistemit Interaktiv për menaxhimin e orarit te linjave te Autobusëve ne stacionin e autobusëve 
 
 Projekt semestral i punuar nga studentet e vitit te dyte ne Universitetin e Prishtinës "Hasan Prishtina". </br>
 Fakuleteti i Inxhinierise Elektrike dhe Kompjuterike - FIEK </br>
