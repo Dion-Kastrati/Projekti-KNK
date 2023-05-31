@@ -11,14 +11,9 @@ import javafx.scene.control.Label;
 
 import javafx.scene.image.ImageView;
 
-import javafx.scene.control.TextField;
-
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import models.User;
 import repository.UserRepository;
-import services.Perkthimet;
 import services.UserAuthService;
 
 import java.io.IOException;

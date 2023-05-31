@@ -6,7 +6,6 @@ import models.AdminOraret;
 import models.Oraret;
 import models.dto.CreateAdminOraretDto;
 import models.dto.CreateOraretDto;
-import repository.interfaces.OraretRepositoryInterface;
 import services.ConnectionUtil;
 
 import java.sql.Connection;
@@ -14,35 +13,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class oraretRepository{
-    public static Oraret insert(CreateOraretDto Oraret) throws SQLException{
-        String sql = "INSERT INTO oraret(prej,deri,koha_nisjes,koha_arritjes,cmimi_biletes) values(?,?,?,?,?)";
-        Connection conn = ConnectionUtil.getConnection();
+public class oraretRepository {
+    public static Oraret insert(CreateOraretDto Oraret) throws SQLException {
+        String sql = "INSERT INTO oraret(company_name, prej,deri,koha_nisjes,koha_arritjes,cmimi_biletes) values(?,?,?,?,?,?)";
         PreparedStatement preparedStatement = ConnectionUtil.getConnection().prepareStatement(sql);
-        preparedStatement.setString(1,Oraret.getVendiNisjes());
-        preparedStatement.setString(2,Oraret.getDestinacioni());
-        preparedStatement.setString(3,Oraret.getKohaNisjes());
-        preparedStatement.setString(4,Oraret.getKohaArritjes());
-        preparedStatement.setDouble(5,Oraret.getCmimiBiletes());
+        preparedStatement.setString(1, Oraret.getCompanyName());
+        preparedStatement.setString(2, Oraret.getVendiNisjes());
+        preparedStatement.setString(3, Oraret.getDestinacioni());
+        preparedStatement.setString(4, Oraret.getKohaNisjes());
+        preparedStatement.setString(5, Oraret.getKohaArritjes());
+        preparedStatement.setDouble(6, Oraret.getCmimiBiletes());
         preparedStatement.executeUpdate();
 
-        return new Oraret(Oraret.getOrariID(), Oraret.getCompanyName(),Oraret.getVendiNisjes(),Oraret.getDestinacioni(),Oraret.getKohaNisjes(),Oraret.getKohaArritjes(), Oraret.getCmimiBiletes());
+        return new Oraret(Oraret.getOrariID(), Oraret.getCompanyName(), Oraret.getVendiNisjes(), Oraret.getDestinacioni(), Oraret.getKohaNisjes(), Oraret.getKohaArritjes(), Oraret.getCmimiBiletes());
     }
 
-    public static ObservableList<String> selectCompanies() throws SQLException{
+    public static ObservableList<String> selectCompanies() throws SQLException {
         ObservableList<String> kompanite = FXCollections.observableArrayList();
-        try{
+        try {
             String sql = "SELECT DISTINCT company_name FROM autobuset";
             Connection connection = ConnectionUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             // Execute the query
             ResultSet resultSet = preparedStatement.executeQuery(sql);
-        while(resultSet.next()){
-            String companyName = resultSet.getString("company_name");
-            kompanite.add(companyName);
-        }
-        }catch (SQLException e){
+            while (resultSet.next()) {
+                String companyName = resultSet.getString("company_name");
+                kompanite.add(companyName);
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -53,8 +52,7 @@ public class oraretRepository{
     public static AdminOraret insert(CreateAdminOraretDto oraret) throws SQLException {
         String addSql = "INSERT INTO oraret(company_name, prej ,deri, koha_nisjes, koha_arritjes, cmimi_biletes) VALUES (?,?,?,?,?,?)";
         Connection connection = ConnectionUtil.getConnection();
-        try(PreparedStatement preparedStatement = connection.prepareStatement(addSql);)
-        {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(addSql)) {
             preparedStatement.setString(1, oraret.getCompanyName());
             preparedStatement.setString(2, oraret.getVendiNisjes());
             preparedStatement.setString(3, oraret.getDestinacioni());
@@ -64,7 +62,7 @@ public class oraretRepository{
 
             preparedStatement.executeUpdate();
             return AdminLinjaRepository.getByCompanyName(oraret.getCompanyName());
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw e;
         }
     }

@@ -222,14 +222,12 @@ public class oraretController implements Initializable {
         }    }
 
     public void shtoLinjenButton(ActionEvent actionEvent) {
-        //TODO: Logjika qe me shtu linjen e re masi t mushen fields
-        // i marrim tdhanat prej text fields
         String companyName = emriKompanise_ID.getValue().toString();
         String vendiNisjes = vendNisja_ID.getText();
         String destinacionit = destinacioni_ID.getText();
         String kohaNisjes = oraNisjes_ID.getText();
         String kohaArritjes = oraArritjes_ID.getText();
-        String cmimiBiletesStr = columnCmimiBiletesID.getText();
+        String cmimiBiletesStr = cmimi_ID.getText();
         double cmimiBiletes = Double.parseDouble(cmimiBiletesStr);
 
 
@@ -238,12 +236,18 @@ public class oraretController implements Initializable {
 
         try {
             Oraret insertedOrari = oraretRepository.insert(orari);
-            if (insertedOrari != null) {
-                tblOraretAdmin_ID.getItems().add(insertedOrari);
-            }
+            tblOraretAdmin_ID.getItems().add(insertedOrari);
+            showInformationMessage("Line added successfully");
         } catch (SQLException e) {
             e.printStackTrace();
 
         }
+    }
+    private void showInformationMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

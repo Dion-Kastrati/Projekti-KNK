@@ -16,7 +16,6 @@ import models.Session;
 import models.User;
 import services.UserService;
 import services.interfaces.UserServiceInterface;
-import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;

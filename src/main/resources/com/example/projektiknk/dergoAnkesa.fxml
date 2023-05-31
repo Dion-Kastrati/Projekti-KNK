@@ -22,7 +22,7 @@
             </Text>
             <TextField fx:id="email_ID" layoutX="76.0" layoutY="133.0" prefHeight="26.0" prefWidth="294.0" promptText="Email" />
             <TextArea fx:id="pershkrimiTxt_ID" layoutX="76.0" layoutY="173.0" prefHeight="196.0" prefWidth="297.0" promptText="Shkruaj ankesen..." />
-            <Button fx:id="dergoBtn" layoutX="304.0" layoutY="381.0" mnemonicParsing="false" onAction="#onActionDergo" prefHeight="34.0" prefWidth="71.0" style="-fx-background-color: #ffd100;" text="Dergo">
+            <Button fx:id="dergoBtn" layoutX="304.0" layoutY="381.0" mnemonicParsing="false" onAction="#onActionDergo" prefHeight="26.0" prefWidth="71.0" style="-fx-background-color: #ffd100;" text="Dergo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

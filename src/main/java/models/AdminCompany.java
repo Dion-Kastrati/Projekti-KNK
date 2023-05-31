@@ -4,19 +4,25 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import models.dto.CreateKompaniDto;
 
-public class AdminCompanyProperty {
+public class AdminCompany {
     private IntegerProperty company_id;
     private StringProperty company_name;
     private IntegerProperty bus_seats;
 
-    public AdminCompanyProperty(int company_id, String company_name) {
+    private int company_id1;
+    private String comapny_name1;
+    private int bus_seats1;
+
+    public AdminCompany(int company_id, String company_name) {
         this.company_id =new SimpleIntegerProperty (company_id);
         this.company_name =new SimpleStringProperty (company_name);
 
     }
 
+    public AdminCompany(String comapny_name1) {
+        this.comapny_name1 = comapny_name1;
+    }
 
     public int getCompany_id() {
         return company_id.get();
@@ -52,5 +58,13 @@ public class AdminCompanyProperty {
 
     public void setBus_seats(int bus_seats) {
         this.bus_seats.set(bus_seats);
+    }
+
+    public String getComapny_name1() {
+        return comapny_name1;
+    }
+
+    public void setComapny_name1(String comapny_name1) {
+        this.comapny_name1 = comapny_name1;
     }
 }
