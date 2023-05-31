@@ -229,7 +229,9 @@ public class oraretController implements Initializable {
         String destinacionit = destinacioni_ID.getText();
         String kohaNisjes = oraNisjes_ID.getText();
         String kohaArritjes = oraArritjes_ID.getText();
-        String cmimiBiletes = cmimi_ID.getText();
+        String cmimiBiletesStr = columnCmimiBiletesID.getText();
+        double cmimiBiletes = Double.parseDouble(cmimiBiletesStr);
+
 
         CreateOraretDto orari = new CreateOraretDto(companyName,vendiNisjes,destinacionit,kohaNisjes,kohaArritjes,cmimiBiletes);
 

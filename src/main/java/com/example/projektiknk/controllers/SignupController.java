@@ -136,6 +136,7 @@ public class SignupController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) login_ID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();

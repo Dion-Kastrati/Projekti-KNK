@@ -139,4 +139,5 @@ public class NormalUserRepository {
 
         return oraretList;
     }
+
 }

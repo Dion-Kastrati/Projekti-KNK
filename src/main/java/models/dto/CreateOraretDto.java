@@ -1,7 +1,5 @@
 package models.dto;
 
-import java.time.LocalTime;
-
 public class CreateOraretDto {
     private int orariID;
     private String companyName;
@@ -9,9 +7,9 @@ public class CreateOraretDto {
     private String destinacioni;
     private String kohaNisjes;
     private String kohaArritjes;
-    private String cmimiBiletes;
+    private double cmimiBiletes;
 
-    public CreateOraretDto( String companyName, String vendiNisjes, String destinacioni, String kohaNisjes, String kohaArritjes, String cmimiBiletes) {
+    public CreateOraretDto( String companyName, String vendiNisjes, String destinacioni, String kohaNisjes, String kohaArritjes, double cmimiBiletes) {
         this.companyName = companyName;
         this.vendiNisjes = vendiNisjes;
         this.destinacioni = destinacioni;
@@ -68,11 +66,11 @@ public class CreateOraretDto {
         this.kohaArritjes = kohaArritjes;
     }
 
-    public String getCmimiBiletes() {
+    public double getCmimiBiletes() {
         return cmimiBiletes;
     }
 
-    public void setCmimiBiletes(String cmimiBiletes) {
+    public void setCmimiBiletes(double cmimiBiletes) {
         this.cmimiBiletes = cmimiBiletes;
     }
 }

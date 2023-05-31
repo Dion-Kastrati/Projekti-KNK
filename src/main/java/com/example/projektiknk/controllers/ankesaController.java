@@ -45,6 +45,7 @@ public class ankesaController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+
         translate();
     }
 
@@ -59,6 +60,7 @@ public class ankesaController  implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) loginID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
@@ -77,6 +79,7 @@ public class ankesaController  implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) signupID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Sign up");
             stage.setScene(scene);
             stage.show();
@@ -96,6 +99,7 @@ public class ankesaController  implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) dergoAnkese.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Ankesa");
             stage.setScene(scene);
             stage.show();
@@ -114,6 +118,7 @@ public class ankesaController  implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) guest_ID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Guest - Oraret");
             stage.setScene(scene);
             stage.show();

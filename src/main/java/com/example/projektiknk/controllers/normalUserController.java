@@ -103,6 +103,7 @@ public class normalUserController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) loginID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
@@ -121,6 +122,7 @@ public class normalUserController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) signupID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Sign up");
             stage.setScene(scene);
             stage.show();
@@ -140,6 +142,7 @@ public class normalUserController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) dergoAnkese.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Ankesa");
             stage.setScene(scene);
             stage.show();
