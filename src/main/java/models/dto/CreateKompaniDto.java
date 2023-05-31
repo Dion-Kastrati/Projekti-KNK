@@ -1,19 +1,19 @@
 package models.dto;
 
 public class CreateKompaniDto {
-    private String companyID;
+    private int companyID;
     private String companyName;
 
-    public CreateKompaniDto(String companyID, String companyName) {
-        this.companyID = companyID;
+
+    public CreateKompaniDto(String companyName) {
         this.companyName = companyName;
     }
 
-    public String getCompanyID() {
+    public int getCompanyID() {
         return companyID;
     }
 
-    public void setCompanyID(String companyID) {
+    public void setCompanyID(int companyID) {
         this.companyID = companyID;
     }
 

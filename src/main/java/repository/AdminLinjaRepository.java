@@ -17,8 +17,8 @@ public class AdminLinjaRepository {
     public static List<AdminOraret> getOraret(Connection connection) throws SQLException {
         List<AdminOraret> studentList = new ArrayList<>();
         String sql = "Select * from tbl_students";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             int orariID = resultSet.getInt("Id");
             String company_name = resultSet.getString("company_name");
@@ -32,7 +32,7 @@ public class AdminLinjaRepository {
             studentList.add(studentModel);
         }
         resultSet.close();
-        statement.close();
+        preparedStatement.close();
         return studentList;
 
     }
@@ -40,96 +40,53 @@ public class AdminLinjaRepository {
     public static AdminOraret insert(CreateAdminOraretDto oraret) throws SQLException {
         String addSql = "INSERT INTO oraret(company_name, prej ,deri, koha_nisjes, koha_arritjes, cmimi_biletes) VALUES (?,?,?,?,?,?)";
         Connection connection = ConnectionUtil.getConnection();
-        PreparedStatement statement = connection.prepareStatement(addSql);
+        PreparedStatement preparedStatement = connection.prepareStatement(addSql);
 
-        statement.setString(1, oraret.getCompanyName());
-        statement.setString(2, oraret.getVendiNisjes());
-        statement.setString(3, oraret.getDestinacioni());
-        statement.setString(4, oraret.getKohaNisjes());
-        statement.setString(5, oraret.getKohaArritjes());
-        statement.setString(6, oraret.getCmimiBiletes());
+        preparedStatement.setString(1, oraret.getCompanyName());
+        preparedStatement.setString(2, oraret.getVendiNisjes());
+        preparedStatement.setString(3, oraret.getDestinacioni());
+        preparedStatement.setString(4, oraret.getKohaNisjes());
+        preparedStatement.setString(5, oraret.getKohaArritjes());
+        preparedStatement.setString(6, oraret.getCmimiBiletes());
 
-
-        statement.executeUpdate();
+        preparedStatement.executeUpdate();
         return AdminLinjaRepository.getByCompanyName(oraret.getCompanyName());
 
     }
 
-    // perditesimi-editimi i nje studenti
-    public static boolean updateOrarin(UpdateOrariDto orariDto) throws SQLException{
-        String updatesql = "UPDATE oraret SET company_name=?, prej=?, deri=?, koha_nisjes=?, koha_arritjes=?, cmimi_biletes=? WHERE id=?";
-        Connection connection = ConnectionUtil.getConnection();
-        PreparedStatement statement = connection.prepareStatement(updatesql) ;
+    // perditesimi i nje orari
+//    public static boolean updateOrarin(UpdateOrariDto orariDto) throws SQLException{
+//        String updatesql = "UPDATE oraret SET company_name=?, prej=?, deri=?, koha_nisjes=?, koha_arritjes=?, cmimi_biletes=? WHERE id=?";
+//        Connection connection = ConnectionUtil.getConnection();
+//        PreparedStatement preparedStatement = connection.prepareStatement(updatesql) ;
+//
+//        preparedStatement.setString(1, orariDto.getCompany_name());
+//        preparedStatement.setString(2, orariDto.getVend_nisja());
+//        preparedStatement.setString(3, orariDto.getDestinacioni());
+//        preparedStatement.setString(4, orariDto.getKohaNisjes());
+//        preparedStatement.setString(5, orariDto.getKohaArritjes());
+//        preparedStatement.setString(6, orariDto.getCmimi_biletes());
+//        preparedStatement.setInt(7, orariDto.getId());
+//
+//        int rowsAffected = preparedStatement.executeUpdate();
+//
+//        if (rowsAffected > 0) {
+//            System.out.println("Schedule updated successfully.");
+//        } else {
+//            System.out.println("Failed to update schedule.");
+//        }
+//
+//        return rowsAffected>0;
+//    }
 
-        statement.setString(1, orariDto.getCompany_name());
-        statement.setString(2, orariDto.getVend_nisja());
-        statement.setString(3, orariDto.getDestinacioni());
-        statement.setString(4, orariDto.getKohaNisjes());
-        statement.setString(5, orariDto.getKohaArritjes());
-        statement.setString(6, orariDto.getCmimi_biletes());
-        statement.setInt(7, orariDto.getId());
-
-        int rowsAffected = statement.executeUpdate();
-
-        if (rowsAffected > 0) {
-            System.out.println("Schedule updated successfully.");
-        } else {
-            System.out.println("Failed to update schedule.");
-        }
-
-        return rowsAffected>0;
-    }
-
-    // filtrimi i nje orari permes emres se kompanise
-    public static List<AdminOraret> filterTable(Connection connection, CreateAdminOraretDto model) throws SQLException {
-        List<AdminOraret> studentList = new ArrayList<>();
-        StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM oraret WHERE 1=1");
-
-        if (model.getOrariID() != 0) {
-            sqlBuilder.append(" AND orari_id= ?");
-        }
-        if (model.getCompanyName() != null && !model.getCompanyName().isEmpty()) {
-            sqlBuilder.append(" AND company_name LIKE ?");
-        }
-
-        PreparedStatement statement = connection.prepareStatement(sqlBuilder.toString());
-        int parameterIndex = 1;
-
-        if (model.getOrariID()!=0 ) {
-            statement.setInt(parameterIndex++,  model.getOrariID());
-        }
-
-        if (model.getCompanyName() != null && !model.getCompanyName().isEmpty()) {
-            statement.setString(parameterIndex++, "%" + model.getCompanyName() + "%");
-        }
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()) {
-            int orariID = resultSet.getInt("orari_id");
-            String companyName = resultSet.getString("company_name");
-            String prej = resultSet.getString("prej");
-            String deri = resultSet.getString("deri");
-            String kohaNisjes = resultSet.getString("koha_nisjes");
-            String kohaArritjes = resultSet.getString("koha_arritjes");
-            String cmimiBiletes = resultSet.getString("cmimi_biletes");
-
-            // Create an instance of AdminStudent with retrieved data
-            AdminOraret student = new AdminOraret(orariID, companyName, prej, deri, kohaNisjes, kohaArritjes, cmimiBiletes);
-            studentList.add(student);
-        }
-
-        resultSet.close();
-        statement.close();
-
-        return studentList;
-    }
 
 
     public static AdminOraret getByCompanyName(String companyName) throws SQLException {
         String sql = "SELECT * FROM oraret WHERE company_name=?";
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, companyName);
-            ResultSet resultSet = statement.executeQuery();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+                preparedStatement.setString(1, companyName);
+                ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 int orariId = resultSet.getInt("orari_id");
                 String company_name = resultSet.getString("company_name");

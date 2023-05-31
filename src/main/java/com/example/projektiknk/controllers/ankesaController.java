@@ -1,7 +1,5 @@
 package com.example.projektiknk.controllers;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,18 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import models.Ankesa;
 import services.AnkesaService;
 
 import java.io.IOException;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -164,11 +158,6 @@ public class ankesaController  implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
-
-        // Automatically close the dialog after 5 seconds
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), e -> alert.close()));
-        timeline.setCycleCount(1);
-        timeline.play();
     }
 
     private boolean isValidEmail(String email) {

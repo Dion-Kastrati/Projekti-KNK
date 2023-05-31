@@ -13,18 +13,10 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import models.Session;
 import models.User;
-import services.ConnectionUtil;
-import services.Perkthimet;
-import services.UserAuthService;
 import services.UserService;
 
 import java.io.IOException;
-import java.io.PipedReader;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 

@@ -21,6 +21,12 @@ import static repository.NormalUserRepository.*;
 
 public class normalUserController implements Initializable {
     @FXML
+    private Label ngaLable_ID;
+    @FXML
+    private Label deriLable_ID;
+    @FXML
+    private Button gjejLinjat_ID;
+    @FXML
     private Button dergoAnkese;
 
     @FXML

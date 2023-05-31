@@ -7,10 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import services.Perkthimet;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,8 +16,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class homeController implements Initializable {
-    public Button dergoAnkese;
-    public Button shikoOraret;
+    @FXML
+    private Button dergoAnkese;
+    @FXML
+    private Button shikoOraret;
     @FXML
     private Button homeID;
     @FXML

@@ -2,7 +2,7 @@ package repository;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import models.AdminCompanyProperty;
+import models.AdminCompany;
 import models.dto.CreateKompaniDto;
 import services.ConnectionUtil;
 
@@ -13,8 +13,8 @@ import java.sql.SQLException;
 
 public class adminCompanyPropertyRepository {
 
-     public static ObservableList<AdminCompanyProperty> fetchDataFromDatabase(){
-         ObservableList<AdminCompanyProperty> comps = FXCollections.observableArrayList();
+     public static ObservableList<AdminCompany> fetchDataFromDatabase(){
+         ObservableList<AdminCompany> comps = FXCollections.observableArrayList();
          try {
              // Create the SQL statement
              String sql = "SELECT bus_id, company_name FROM autobuset";
@@ -28,7 +28,7 @@ public class adminCompanyPropertyRepository {
              while (resultSet.next()) {
                  int companyId = resultSet.getInt("bus_id");
                  String companyName = resultSet.getString("company_name");
-                 AdminCompanyProperty companies = new AdminCompanyProperty(companyId, companyName);
+                 AdminCompany companies = new AdminCompany(companyId, companyName);
                  comps.add(companies);
              }
          } catch (SQLException e) {
@@ -37,7 +37,7 @@ public class adminCompanyPropertyRepository {
          return comps;
      }
 
-    public static AdminCompanyProperty insert(CreateKompaniDto kompani) throws SQLException {
+    public static AdminCompany insert(CreateKompaniDto kompani) throws SQLException {
         String addSql = "INSERT INTO autobuset(company_name) VALUES (?)";
         Connection connection = ConnectionUtil.getConnection();
         PreparedStatement statement = connection.prepareStatement(addSql);
@@ -49,7 +49,7 @@ public class adminCompanyPropertyRepository {
 
     }
 
-    public static AdminCompanyProperty getByCompanyName(String companyName) throws SQLException {
+    public static AdminCompany getByCompanyName(String companyName) throws SQLException {
         String sql = "SELECT * FROM oraret WHERE company_name=?";
         try (Connection connection = ConnectionUtil.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -58,7 +58,7 @@ public class adminCompanyPropertyRepository {
             if (resultSet.next()) {
                 int orariId = resultSet.getInt("orari_id");
                 String company_name = resultSet.getString("company_name");
-                return new AdminCompanyProperty(orariId,company_name);
+                return new AdminCompany(orariId,company_name);
             } else {
                 return null;
             }

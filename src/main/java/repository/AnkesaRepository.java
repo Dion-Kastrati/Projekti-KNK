@@ -18,11 +18,11 @@ public class AnkesaRepository implements AnkesaRepositoryInterface{
     public  Ankesa insert(StoreAnkesaDto ankesa) throws SQLException {
         String sql = "INSERT INTO ankesat (email, ankesa) VALUES (?, ?)";
         Connection connection = ConnectionUtil.getConnection();
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, ankesa.getEmail());
-            statement.setString(2, ankesa.getAnkesa());
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, ankesa.getEmail());
+            preparedStatement.setString(2, ankesa.getAnkesa());
 
-            statement.executeUpdate();
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             // Handle exceptions
