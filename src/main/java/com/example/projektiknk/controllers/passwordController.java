@@ -82,6 +82,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) homeID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Home");
             stage.setScene(scene);
             stage.show();
@@ -100,6 +101,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) oraretID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("Oraret");
             stage.setScene(scene);
             stage.show();
@@ -118,6 +120,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) profilID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("User Profile");
             stage.setScene(scene);
             stage.show();
@@ -136,6 +139,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) fjalkalimiBtn_ID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("User Profile");
             stage.setScene(scene);
             stage.show();
@@ -154,6 +158,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) gjuha_ID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("User Profile");
             stage.setScene(scene);
             stage.show();
@@ -173,6 +178,7 @@ public class passwordController implements Initializable {
 
             // Get the current stage (window) and set the new scene
             Stage stage = (Stage) logout_ID.getScene().getWindow();
+            stage.setResizable(false);
             stage.setTitle("User Profile");
             stage.setScene(scene);
             stage.show();

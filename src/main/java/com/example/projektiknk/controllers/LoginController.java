@@ -79,6 +79,7 @@ public class LoginController implements Initializable {
 
                 Stage stage = (Stage) loginID.getScene().getWindow();
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.show();
             } else {
                 // Username doesn't exist or password is incorrect, show an error message

@@ -15,13 +15,14 @@ public class App extends Application {
     public void start(Stage stage) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(
 
-                App.class.getResource("login.fxml")
+                App.class.getResource("dergoAnkesa.fxml")
 
         );
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Login");
+        stage.setResizable(false);
         stage.setScene(scene);
+        stage.setTitle("Login");
         stage.show();
     }
     public static void main(String[] args) {
