@@ -1,5 +1,6 @@
 package com.example.projektiknk.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,31 +8,45 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.Ankesa;
+import models.Oraret;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import static repository.AnkesaRepository.fetchAnkesat;
+import static repository.NormalUserRepository.*;
+
 public class menaxhoAnkesa implements Initializable{
+        @FXML
+        private TableView<Ankesa> tblAnkesaID;
+        @FXML
+        private TableColumn<Ankesa, String> emailCol_ID;
+        @FXML
+        private TableColumn<Ankesa, String> ankesaCol_ID;
         @FXML
         private Button homeID;
         @FXML
         private Button oraretID;
         @FXML
         private Button profilID;
-        @FXML
-        private Button shikoOraret;
-        @FXML
-        private Button dergoAnkese;
-        @FXML
-        private Text textHome_ID;
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle){
             translate();
+            emailCol_ID.setCellValueFactory(cellData -> cellData.getValue().emailcolProperty());
+            ankesaCol_ID.setCellValueFactory(cellData -> cellData.getValue().aneksacolProperty());
+
+            // Fetch data from the database and populate the TableView
+            ObservableList<Ankesa> ankesaList = fetchAnkesat();
+            tblAnkesaID.setItems(ankesaList);
         }
 
         public void sendToHome(ActionEvent event) {
