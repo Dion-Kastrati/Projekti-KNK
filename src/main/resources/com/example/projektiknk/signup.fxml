@@ -30,7 +30,7 @@
             <TextField fx:id="mbiemriID" layoutX="535.0" layoutY="156.0" promptText="Mbiemri" />
             <TextField fx:id="emailID" layoutX="534.0" layoutY="207.0" promptText="Email" />
                 <TextField fx:id="usernameID" layoutX="534.0" layoutY="254.0" promptText="Username" />
-                <PasswordField fx:id="passwordID" layoutX="535.0" layoutY="305.0" promptText="Password" />
+                <PasswordField fx:id="passwordID" layoutX="535.0" layoutY="305.0" promptText="Password" onKeyReleased="#onKeyLogin" />
                 <Button fx:id="signupID" layoutX="471.0" layoutY="351.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Sign Up" textAlignment="CENTER" textFill="#ffd100">
                     <font>
                         <Font name="System Bold" size="16.0" />

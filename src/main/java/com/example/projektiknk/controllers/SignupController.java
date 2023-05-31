@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import services.Perkthimet;
 
@@ -124,6 +126,12 @@ public class SignupController implements Initializable {
             showErrorMessage("An error occurred. Please try again later.");
         }
 
+    }
+    @FXML
+    private void onKeyLogin(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            signupClick(null);
+        }
     }
     @FXML
     private void onActionLogin(ActionEvent event) {

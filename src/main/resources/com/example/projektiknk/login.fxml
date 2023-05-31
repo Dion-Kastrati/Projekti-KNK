@@ -32,7 +32,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <PasswordField fx:id="passwordID" layoutX="522.0" layoutY="235.0" promptText="Password" />
+            <PasswordField fx:id="passwordID" layoutX="522.0" layoutY="235.0" promptText="Password" onKeyReleased="#onKeyLogin"/>
             <Button fx:id="signup_ID" layoutX="496.0" layoutY="345.0" mnemonicParsing="false" onAction="#onActionSignup" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: transparent;" text="Sign Up!" textAlignment="CENTER" textFill="#4000ef" underline="true">
                <font>
                   <Font name="Arial" size="13.0" />

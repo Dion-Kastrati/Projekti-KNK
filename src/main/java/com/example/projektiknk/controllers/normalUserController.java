@@ -1,10 +1,12 @@
 package com.example.projektiknk.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -41,6 +43,7 @@ public class normalUserController implements Initializable {
     private TableColumn<Oraret, Double> biletaColumn_ID;
     @FXML
     private Pagination oraretPagination;
+    private final static int rowPerPage=5;
     @FXML
     private Label ngaLable;
     @FXML
@@ -70,6 +73,8 @@ public class normalUserController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+        oraretPagination.setPageFactory(this::createPage);
     }
 
     @FXML
@@ -150,5 +155,15 @@ public class normalUserController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    private Node createPage(int pageIndex) {
+        int fromIndex = pageIndex * rowPerPage;
+        int toIndex = Math.min(fromIndex + rowPerPage, tblOraret.getItems().size());
+
+        tblOraret.getItems().setAll(fetchDataFromDatabase().subList(fromIndex, toIndex));
+
+        return tblOraret;
+    }
+
 
 }

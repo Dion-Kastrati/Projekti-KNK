@@ -7,6 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Session;
@@ -20,6 +23,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import static services.UserAuthService.login;
 
 
 public class LoginController implements Initializable {
@@ -88,6 +93,13 @@ public class LoginController implements Initializable {
         } catch (IOException | SQLException ex) {
             ex.printStackTrace();
             showErrorMessage("An error occurred during login. Please try again.");
+        }
+    }
+
+    @FXML
+    private void onKeyLogin(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            onActionLogin(null);
         }
     }
 

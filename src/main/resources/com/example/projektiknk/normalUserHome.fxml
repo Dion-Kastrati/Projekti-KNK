@@ -25,6 +25,7 @@
    <Label fx:id="deriLable_ID" layoutX="349.0" layoutY="95.0" text="Deri:" />
    <ComboBox fx:id="comboDestinacioni_ID" layoutX="349.0" layoutY="115.0" prefWidth="150.0" />
    <Button fx:id="gjejLinjat_ID" layoutX="566.0" layoutY="115.0" mnemonicParsing="false" onAction="#onActionShfaqLinjat" prefHeight="26.0" prefWidth="89.0" style="-fx-background-color: #ffd100;" text="Gjej Linjat" />
+
     <TableView fx:id="tblOraret" layoutX="111.0" layoutY="190.0" prefHeight="251.0" prefWidth="578.0">
       <columns>
           <TableColumn fx:id="kompaniaColumn_ID" prefWidth="156.0" text="Kompania" />
@@ -33,5 +34,5 @@
           <TableColumn fx:id="biletaColumn_ID" minWidth="0.0" prefWidth="148.79998779296875" text="Cmimi i biletes" />
       </columns>
     </TableView>
-    <Pagination fx:id="oraretPagination" layoutX="300.0" layoutY="442.0" prefHeight="40.0" prefWidth="200.0" />
+    <Pagination fx:id="oraretPagination" layoutX="74.0" layoutY="275.0" prefHeight="207.0" prefWidth="636.0" />
 </AnchorPane>
