@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Session;
@@ -90,6 +92,12 @@ public class LoginController implements Initializable {
         }
     }
 
+    @FXML
+    private void onKeyLogin(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            onActionLogin(null);
+        }
+    }
 
     @FXML
     private void onActionCancel(ActionEvent e) {

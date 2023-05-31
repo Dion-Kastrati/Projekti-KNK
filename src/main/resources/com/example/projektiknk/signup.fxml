@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.SignupController">
     <center>
-        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
+        <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="417.0" prefWidth="668.0" BorderPane.alignment="CENTER">
             <children>
                 <Label fx:id="password_label" layoutX="407.0" layoutY="302.0" prefHeight="31.0" prefWidth="101.0" text="Password:">
                     <font>
@@ -30,7 +30,7 @@
             <TextField fx:id="mbiemriID" layoutX="535.0" layoutY="156.0" promptText="Mbiemri" />
             <TextField fx:id="emailID" layoutX="534.0" layoutY="207.0" promptText="Email" />
                 <TextField fx:id="usernameID" layoutX="534.0" layoutY="254.0" promptText="Username" />
-                <PasswordField fx:id="passwordID" layoutX="535.0" layoutY="305.0" promptText="Password" />
+                <PasswordField fx:id="passwordID" layoutX="535.0" layoutY="305.0" promptText="Password" onKeyReleased="#onKeyLogin"/>
                 <Button fx:id="signupID" layoutX="471.0" layoutY="351.0" mnemonicParsing="false" onAction="#signupClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000;" text="Sign Up" textAlignment="CENTER" textFill="#ffd100">
                     <font>
                         <Font name="System Bold" size="16.0" />
@@ -46,7 +46,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="emri_label" layoutX="451.0" layoutY="112.0" text="Emri:">
+            <Label fx:id="emri_label" layoutX="447.0" layoutY="112.0" prefHeight="31.0" prefWidth="54.0" text="Emri:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
