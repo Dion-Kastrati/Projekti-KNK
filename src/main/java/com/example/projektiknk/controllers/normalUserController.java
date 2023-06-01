@@ -84,7 +84,8 @@ public class normalUserController implements Initializable {
     }
 
     @FXML
-    private void onActionShfaqLinjat(ActionEvent e) throws SQLException {
+    private void onActionShfaqLinjat(ActionEvent event) throws SQLException {
+        try {
             // Pass the comboNisja value to a variable
             String selectedValue = comboNisja_ID.getValue().toString();
 //            System.out.println("Selected Value: " + selectedValue);
@@ -93,6 +94,7 @@ public class normalUserController implements Initializable {
             String selectedValueDest = comboDestinacioni_ID.getValue().toString();
 //            System.out.println("Selected Value Dest: " + selectedValueDest);
 
+
             kompaniaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().companyNameProperty());
             nisjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaNisjesProperty());
             arritjaColumn_ID.setCellValueFactory(cellData -> cellData.getValue().kohaArritjesProperty());
@@ -100,7 +102,9 @@ public class normalUserController implements Initializable {
 
             ObservableList<Oraret> oraretFilter = getOrarinPrejDeri(selectedValue, selectedValueDest);
             tblOraret.setItems(oraretFilter);
-
+        }catch (NullPointerException e){
+            showErrorMessage("Zgjedheni destinacioni!");
+        }
         }
 
 
@@ -169,6 +173,13 @@ public class normalUserController implements Initializable {
         tblOraret.getItems().setAll(fetchDataFromDatabase().subList(fromIndex, toIndex));
 
         return tblOraret;
+    }
+    private void showErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 
