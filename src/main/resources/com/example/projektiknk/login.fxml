@@ -14,14 +14,14 @@
 
 <BorderPane maxHeight="500" maxWidth="800" minHeight="500" minWidth="800" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projektiknk.controllers.LoginController">
    <center>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="378.0" prefWidth="600.0" style="-fx-background-color: #FFD100;" BorderPane.alignment="CENTER">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="378.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="password_label" layoutX="413.0" layoutY="232.0" prefHeight="31.0" prefWidth="107.0" text="Password:">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label fx:id="username_label" layoutX="414.0" layoutY="170.0" text="Username:">
+            <Label fx:id="username_label" layoutX="409.0" layoutY="170.0" prefHeight="31.0" prefWidth="109.0" text="Username:" textAlignment="RIGHT">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>

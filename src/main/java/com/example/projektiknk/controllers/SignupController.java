@@ -127,6 +127,13 @@ public class SignupController implements Initializable {
         }
 
     }
+
+    @FXML
+    private void onKeyLogin(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            signupClick(null);
+        }
+    }
     @FXML
     private void onKeyLogin(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
