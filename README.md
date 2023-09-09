@@ -8,10 +8,10 @@ Departament: Kompjuterike </br>
 
 Hapat per ekzekutimin e kodit: </br>
 1. Klonimi i projektit.
-2. Konfigurimi i nderlidhjes me databaze.
+2. Lidhja me databaze.
 3. Krijimi i tabelave ne databaze (te gjitha gjenden ne migrations te projektit).
 4. Kompajlimi i programit.
-5. Run programit.
+5. Ekzekuto programin.
 
 Sigurohu qe e keni konfiguruar IDE tuaj me javafx framework dhe keni JDK te instaluar.
 
