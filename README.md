@@ -15,7 +15,7 @@ Hapat per ekzekutimin e kodit: </br>
 
 Sigurohu qe e keni konfiguruar IDE tuaj me javafx framework dhe keni JDK te instaluar.
 
-Punuar nga: </br>
+Punoi: </br>
 1. Dion Kastrati - [@Dion-Kastrati](https://github.com/Dion-Kastrati) </br>
 2. Albin Murtezaj - [@Albin Murtezaj](https://github.com/AlbinMurtezaj) </br>
 3. Leotrim Halimi - [@leootrim](https://github.com/leootrimi) </br>
